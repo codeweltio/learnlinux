@@ -1,0 +1,35 @@
+LINUX COMMANDS
+	1.ls ( list of directory content)
+		-it shows the list of folders/directory in the system
+		-Eg:/Home /mufeeda 
+		-Arguments:
+			-ls -d :it shows only the directories
+			-ls -dr :it shows directories in reverse order
+	2.cp (to copy files and directories)
+		-Eg: cp [name of the file to be copied] [where the file is pasted ie in which directory]
+		-Arguments:
+			- cp -r : to copy any directories into another directories.
+	3.mkdir (crete directories and folders)
+		-Eg; mkdir [name of the folder]
+		-Arguments:
+			-mkdir -p (to create folders inside of another folder) ,Eg: mkdir -p [name of first folder]/[name of second folder]
+	4.cd (move b/w the directories or to change the shell working directory)
+		-Eg; cd Desktop/ -it shows the folders in the desktop ie change the directories
+		-arguments:
+			-cd .. -to go back to each folders
+	5.rm (delete files or directories)
+		-Eg: rm File name enter
+		-arguments ;
+			-rm -r to remove folders and inside contents.
+	6.grep (print lines that matches a certain pattern)
+		-basically it is used to foundout the errors 
+	7.cat ( to see entire content on the terminal)
+		-Arguments :
+			-cat name of file/* (to show entire contents in the number of files)
+	8.sudo (to execute command as another user like ROOT USER)
+ 		-cd/var/log -this case permission is denied
+		-so for the above purpose sudo -i argument is used
+	9.df (to report the file system disk space usage)
+		-Arguments:
+			-df --block-size=M :IT SHOWS THE SPACE IN MEGABYTES
+		-IT IS MAINLY USED TO CHECK STORAGE SPACE WHEN ANY OS IS NOT WORKING
