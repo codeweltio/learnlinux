@@ -1,0 +1,29 @@
+TOPIC 1
+	-Self Introduction.
+	-Basics about OS - https://youtu.be/vBURTt97EkA
+	-https://youtu.be/ROjZy1WbCIA (Basics about LINUX Commands)
+	-Installation Process of "Vitual Machine" - https://youtu.be/Ujn6o2fE2Q0
+					-UBUNTU Software
+	-Linux Commands-PDF shared
+	-Basics about AWS(Amazon Web Service)
+TOPIC 2
+	-yaml
+	-Bash
+	-ide
+	-Plugins
+
+
+ACCOUNTS TO BE CREATED
+	-AWS (FREE ACCOUNT )
+	-github
+	-Udemy
+
+SOFTWARES TO BE INSTALLED
+	-UBUNTU- https://youtu.be/x5MhydijWmc
+	-PUTTY - https://youtu.be/umFEuHWJW3w
+	-VISUAL STUDIO CODE - https://youtu.be/MlIzFUI1QGA
+	-GIT BASH - https://git-scm.com/downloads
+
+vedio link to know about Visual Studio Code - https://youtu.be/i_23KUAEtUM & https://youtu.be/T6sW1Dk9B4E
+					
+Vedio link to know about how to "commit" and "push" a files into REPO - https://youtu.be/2vASHVT0qKc
