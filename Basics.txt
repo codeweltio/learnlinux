@@ -27,7 +27,8 @@ Basics
           be used as a command separator.
         * Tab completion allows a user to quickly complete commands or fi le names once they have typed
           enough at the prompt to make it unique. If the characters typed are not unique, pressing the Tab
-          key twice displays all commands that begin with the characters already typed. Tab completion can be used to complete file names when typing them as arguments           to commands. When Tab is pressed, it will complete the file name as much as it can. Pressing Tab
+          key twice displays all commands that begin with the characters already typed. Tab completion can be used to complete file names when typing
+          them as arguments to commands. When Tab is pressed, it will complete the file name as much as it can. Pressing Tab
           a second time causes the shell to list all of the files that a rematched by the current pattern.  
            -Arguments and options ca n be matched with tab completion for many commands. The useradd
             command is used by the superuser, root, to create additional users on the system. It has many
