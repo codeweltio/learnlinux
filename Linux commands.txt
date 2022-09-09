@@ -1,0 +1,36 @@
+LINUX COMMANDS
+1. “ls”: list directory contents
+• Files are denoted by white color
+• Folders are denoted by blue color
+• Attributes
+o ls -d: Only directories are listed
+o ls -r: Listed in reverse order
+o ls lib*: Directories and files beginning with lib
+o ls -rd: Directories listed in reverse order
+
+2. “cp”: copy file and directories
+cp [option] source directory/
+
+3. “mkdir”: make directory
+• Attributes
+o mkdir -p [name]: make multiple folders inside at the same time
+
+4. “cd”: change the shell working directory
+• Attributes
+o cd ../: to change directory to the previous one
+
+5. “rm”: remove files or directories
+• Attributes
+o rmdir: remove empty directory
+o rmdir -p: remove multiple or filled folder
+o rm -r: remove files with content
+
+6. “grep”: search for a string in a group of files, can also be used to search errors
+
+7. “cat”: to get the entire content of different files
+
+8. “sudo”: to execute a command as another user
+
+9. “df”: report file system disk space usage
+
+df [option] [file] to see how much free space is available
