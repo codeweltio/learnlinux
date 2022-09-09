@@ -1,0 +1,30 @@
+1.ACCESING THE COMMAND LINE
+
+	$ -SHELL PROMPT -represents waiting for a command from the user
+	# -if the shell is running assuperuser(root user)
+	; -COMMAND SEPERATOR -(metacharacter)
+	! -To expand previous command without retype
+	upp arrow -edit the previous command in the history list
+	downarrow -edit the next command in the history list
+	right and left arrow -move left and right in the command line being editted
+	"double tap on tab key" (Eg: pass <tab><tab> ) -display all the commands that begins with the character already typed
+
+
+		---COMMANDS---
+			1.date -to display cureent date and time
+				ARGUMENTS:
+					date +%R -To represent time only (Eg: 10.40)
+					date +r% -To represent time in the format HH:MM:SS AM/PM )only (Eg: 10.40.44 AM)
+					date +%x -To represent date only (Eg; 09/09/22)
+			2.passwd -to change password
+			3.file -scan the begining of a file content and displays what type it is (Eg: file /home which gives o/p like /home:directory
+			4.haed and tail - display begining and end of the file by default it display 10lines
+				ARGUMENTS :
+					-n "no of lines needed" /file name 
+			5.wc -count no of lines,words,characters
+				ARGUMENTS :
+					wc -l /filename -display o of lines
+					wc -w /filename -display o of worrds
+					wc -c /filename -display o of characters
+			6.exit or ctrl+D -Terminates the current session
+
