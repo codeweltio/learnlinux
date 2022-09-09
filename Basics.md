@@ -1,0 +1,48 @@
+Basics
+-------
+                  Local Console Access Terms
+                 ---------------------------
+            1. The interpreter that executes commands typed as strings :- Shell  
+            2. The visual cue that indicates an interactive shell is waiting for the user to type a command :- Prompt
+            3. The name of a program to run :- Command
+            4. The part of the command line that adjusts the behavior of a command :- Option
+            5. The part of the command line that specifies the target that the command should operate on :-  Argument
+            6. The hardware display and keyboard used to interact with a system :-  Physical console
+            7. One of multiple logical consoles that can each support an independent login session :-  Virtual console
+            8. An interface that provides a display for output and a keyboard for input to a shell session.:-  Terminal
+
+        NOTES
+        ----
+        * The default prompt ends with a $ character.The $ is replaced by a # if the shell is running as the superuser, root.
+        * The command is the name of the program to run. It may be followed by one or more options,
+          which adjust the behavior of the command or what it will do. Options normally start with one or
+          two das hes (-a or - - all, for example) to distinguish them from a rguments. Commands may also
+          be followed by one or more arguments, which often indicate a target that the command should
+          operate on.
+          For example, the command line { usermod - L morgan } has a command (usermod), an option
+          ( - L), and an a rgument (morgan). The effect of this command is to lock the password on user
+          morgan's account.
+        * Each command is typed on a separate line and the output from each command displays before the shell displays a
+          prompt. If a user wants to type more than one command on a single line, a semicolon, ; , can
+          be used as a command separator.
+        * Tab completion allows a user to quickly complete commands or fi le names once they have typed
+          enough at the prompt to make it unique. If the characters typed are not unique, pressing the Tab
+          key twice displays all commands that begin with the characters already typed. Tab completion can be used to complete file names when typing them as arguments to commands. When Tab is pressed, it will complete the file name as much as it can. Pressing Tab
+          a second time causes the shell to list all of the files that a rematched by the current pattern.  
+           -Arguments and options ca n be matched with tab completion for many commands. The useradd
+            command is used by the superuser, root, to create additional users on the system. It has many
+            options that can be used to control how that command beh aves. Ta b completion following a
+            partial option can be used to complete the option without a lot of typing.
+        * 'history' command displays a list of previously executed commands prefixed with a
+          command number. 
+          - !number expands to the command matching the number specified. !string expands to the most recent command that begins with the string specified. 
+        
+        * command line-editing Shortcuts 
+        
+          Ctrl+a  - Jump to the beginning of the command line. 
+          Ctrl+e  - Jump to the end of the command line.
+          Ctrl+u   - Clear from the cursor to the beginning of the command line.
+          Ctrl+k   - Clear from the cursor to the end of the command line.
+          Ctrl+Left  - Arrow Jump to the beginning of the previous word on the command line.
+          Ctrl+Right - Arrow Jump to the beg inning of the next word on the command line.
+          Ctrl+r  - Search the history list of commands for a pattern. 
