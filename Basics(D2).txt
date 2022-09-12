@@ -1,0 +1,46 @@
+Basics(D2)
+------
+
+        Linux File System Hierarchy
+       -----------------------------
+
+Note
+ ----
+ * The directory / is the root directory. The / character is also used as a directory separator in file names.
+ 
+ * The following terms are encountered in describing file system directory contents:
+  - "static" is content that remains unchanged until explicitly edited or reconfigured.
+  - "dynamic" or "variable" is content typically modified or appended by active processes.
+  - "persistent" is content, particularly configuration settings, that remain after a reboot.
+  - "runtime" is process or system-specific content or attributes cleared during reboot. 
+
+ -Important Linux Directories-
+
+ /usr  -: Installed software, shared libraries, include files, and static read-only program data.
+            Important subdirectories include:
+            - /usr /bin: User commands & utilities are located here.
+            - /usr/sbin: System administration commands , for root use, are here
+            - /usr /local: Locally customized software.
+
+ /etc   -: Configuration files specific to this system. 
+
+ /var   -: Variable data specific to this system that should persist between boots.
+           Files that dynamically change may be found under /var. 
+           eg.: cache directories, log files,  websites
+
+ /run   -: Runtime data for processes sta rted since the last boot. This includes process 
+           ID files and lock files, among ot her thi ngs. The contents of this directory are
+           recreated on reboot.
+
+ /home  -: Home directories where regular users store their personal data and
+           configuration files.
+
+ /root  -: Home directory for the administrative superuser, root.
+
+ /tmp   -: Space for temporary files. Files are deleted from this directory automatically after a specific duration.
+           Another temporary directory exists, /var/tmp .
+
+ /boot  -: Files needed in order to start the boot process.  
+
+ /dev   -: Contains special device files which are used by the system to access hardware.   
+
