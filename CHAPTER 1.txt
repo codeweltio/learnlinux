@@ -1,0 +1,57 @@
+﻿CHAPTER 1. ACCCESSING THE COMMAND LINE
+
+1. Command Line: Text based interface to input instructions to a computer
+
+2. Commands entered have 3 basic parts:
+a. Command to run
+b. Options to adjust the behavior of command
+c. Arguments, targets of the command
+
+3. –help: Print a description of what it does/ Usage statement
+a. [ ] Square brackets: surround optional items
+b. Anything followed by …: List of items of that type
+c. Multiple items separated by pipes |: Only one of them can be specified
+d. Text in < >: Variable data to input
+
+4. Short keys
+a. Starting a terminal:
+i. Applications – Utilities – Terminal 
+ii. Right click – Menu key – Open in Terminal
+b. Locking the screen or logging off
+i. Lock screen – User – Lock / Cntrl+Alt+L
+ii. Unlock screen: Enter or space – Password
+iii. Log out: User – Log out
+iv. Powering off: User – Power off / Cntrl+Alt+Del
+
+5. Commands
+a. date: Display current date and time
+Arguments: date +%R: time
+	        date +%x: date
+b. passwd: To change password
+c. file: Display what type it is
+head: display beginning of a file
+tail: display end of a file
+By default, it displays 10 lines
+Option -n displays n number of lines
+d. wc: counts lines (-l), words (-w), characters (-c)
+
+6. Tab completion: Quickly complete command once typed enough to make it unique
+Tab key twice: Display all commands beginning with that character
+
+7. Command History
+a. history: to see all the command history
+b. !ls: last used ls command with arguments
+c. !(number): Re-execute a specific command in the history list
+d. Up arrow: Edit previous command in the history list
+e. Down arrow: Edit previous command in the history list
+f. Left and Right arrow: To move cursor left and right
+
+8. Editing the command line
+a. Ctrl+a: Jump to the beginning of the command line
+b. Ctrl+a: Jump to the end of the command line
+c. Ctrl+u: Clear from the cursor to the beginning of the command line
+d. Ctrl+k: Clear from the cursor to the end of the command line
+e. Ctrl+Left arrow: Jump to the beginning of the previous word on the command line
+f. Ctrl+Right arrow: Jump to the beginning of the next word on the command line
+g. Ctrl+r: Search the history list of commands for a pattern
+
