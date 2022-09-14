@@ -1,0 +1,38 @@
+ path name matching capability of bash shell - GLOBBING
+	* -any string of O or more characters
+	? -any single character
+	~ -current users home directory
+	~username -usernames home directory
+	~+ -current working directory
+	~- -previous working directory
+	[abc...] -any one character in the enclosed class (EG: ls [a]* -it shows files having name starting with 'a'
+	[!abc...] -any one character not in the enclosed class (Eg: ls [!ab] - it shows files having name starting with other than 'a'
+	[[:alpha:]] -any alphabetic character
+	[[:lower:]] -lower case character
+	[[:upper:]] -upper case character
+	[[:alnum:]] -alphabetic character or digit
+	[[:punct:]] -printable character other than space or alphanumeric
+	[[:digit:]] -digit from 0-9
+	[[:space:]] -whitespace character
+
+EXAMPLES:
+	HOME-DESKTOP-MUFEE-APPLE,CAR,DOG,MAN,SEAT
+		user/home/desktop/mufee $ ls a*
+				apple
+					$ls dm*
+				dog man
+					$ls ???
+				car dog man seat
+ COMMANDS	
+	1.echo -to display line of text
+	2.BRACE EXPANSION- Eg : 	user/home/desktop/mufee $ echo {one,two,three}.log
+					one.log two.log three.log
+					user/home/desktop/mufee $ echo file{1..4}.txt
+					file1.txt file2.txt file3.txt file4.txt
+	3.command substitution ,$ -allows the output of a command to replace the command itself
+			Eg : user/home/desktop/mufee $ echo today is $(date +%A)
+				today is wednesday
+
+
+				
+		
