@@ -1,0 +1,54 @@
+Basics 
+------
+ 
+    Locating Files by Name 
+    **********************
+
+- Absolute paths :- An absolute path is a fully qualified name, beginning at the root (/) directory and specifying each
+                  subdirectory traversed to reach and uniquely represent a single file.
+                  eg. :  /var/log/messages
+
+- Relative paths :- A relative path identifies a unique file, specifying only the path necessary
+                    to reach the file from the working directory.
+
+ Navigating Paths
+ ----------------
+ Comands
+
+ - pwd :- Command displays the full path name of the current location.
+ - ls  :- command lists directory contents for the specified directory.
+ - cd  :- command to change directories.
+ - touch :- command normally updates a file's timestamp to the current date and time without otherwise modifying it.
+            This is useful for creating empty files.
+ - ls  :- command for displaying attributes on files.
+            It has multiple options
+            -l (long listing format)
+            -a (all files, includes hidden files)
+            -R (recursive, to include the contents of all subdirectories).
+                                                                                                                                                                            
+    *The two special directories refer to the current directory (.) and the parent directory ( .. )
+
+ - cd  :- changes directory.
+           cd - :- Return to the most previous working directory. 
+           cd .. :- command uses the .. hidden directory to move up one level to the parent directory
+           cd ../.. :- Move up two levels from the current location. 
+                 
+ File management commands
+ ------------------------
+
+ - mkdir  :- command creates one or more directories or subdirectories.
+             (The -p parent option creates missing parent directories for the requested destination)
+             {*Be cautious when using mkdir - p, since accidental spelling mistakes create unintended 
+             directories without generating error messages}
+
+ - cp     :- command copies one or more files  
+             (Copying non-empty directories, with contents, requires the - r recursive option.)   
+
+ - mv     :- command renames files in the same directory, or relocates files to a new directory.
+
+ - rm     :- Deletes files  
+             -( Deleting a directory, and potentially many subdirectories and files below it, requires the -r recursive option)
+             -(Using -i will interactively prompt for each deletion. This is essentially the opposite of -f which will force 
+               the deletion without prompting the user. ) 
+
+ -rmdir   :- command deletes directories only if empty.
