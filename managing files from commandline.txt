@@ -1,0 +1,38 @@
+Managing Files from the command line
+	/ -directory seperator
+		some directories :
+			/usr , /etc ,/var , /run ,/home
+ 	Locating files by path names
+		1.absolute path-begining at the rootdirectory and specifying each subdirectory traversed to reach
+		2.relative path - which identify a unique file specifying only the path neccessary to reach the file from working directory
+
+COMMANDS
+		pwd - full path name of current location
+		cd - change directories
+			cd -   -changes  directory to the directory where the user was previous to the current directory.
+			cd ..  -to move hidden directory one level upto the parent directory
+			cd .   -to show current directory without specifying the path
+		~ (tilde) - it shows when users current directory is their home directory
+		touch - for creating empty files
+		ls -list of directories and files
+			ARGUMENTS
+				ls -l - lomg listing format
+				ls -a -all files inccluding hidden ( . -current directory , .. -parent directory)
+					note: .-files are hidden from normal view using ls and other commands
+				ls -R -contents of all subdirectories
+				ls -lR -combinely show in long listing format and contents of all subdirectories
+		mkdir -to create  one or more directories/subdirectories  (NOTE : IT CREATES SOME ERROR WHEN SAME FILE NAME EXIST OR ATTEMPTING TO CREATE A DIRECTORY IN A
+			IN A PARENT DIRECTORY )
+			mkdir -p -to create missing parent directories for the required destination
+		cp - to copy a file
+			ARGUMENTS 
+				cp -r to copy non empty directories with contents.
+				NOTE : TO COPY A MULTIPLE FILES WITH ONE COMMAND THE LAST ARGUMENT SHOULD BE A DIRECTORY
+		mv - to rename files in the same directory or to relocate files to a new directory
+			eg: mv mufee mufeenew (here file mufee is renamed to mufeenew)
+		rm -to delete FILES
+			ARGUMENTS:
+				rm -r -delete directories ,subdirectories and files below it
+				rm -i -which will show a message wether to delete or not
+				rm -f -it doesnt prompt for deletion
+				rmdir -delete empty directories
