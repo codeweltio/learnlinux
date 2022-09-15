@@ -1,0 +1,42 @@
+GETTIN HELP IN RED HAT ENTERPRISE LINUX 
+	A) Reading documentation using man command
+		-sections of linux manual
+			1.User commands (both executable and shell programs)
+			2.System calls (kernel routines invoked from user space)
+			3.library functions (provided by program libararies)
+			4.special files (such as device files)
+			5.file formats (for many configuration files and structures)
+			6.games(historical sections for amusing programs)
+			7.conventions,standards and miscellaneous (protocols,file systems)
+			8.system administration and privileged commands (maintenanace tasks )
+			9.linux kernel API (internal kernal calls)
+		-commands
+			1. man - used to open manual page
+				-man {section no} {command name} -to distinguish with sections ,Eg: man 1 passwd
+				-man -f {command name} -to shows all sections,
+					Eg: $ man -f passwd 
+						passwd(1) -change user password
+						passwd(1ssl) -open ssl application commands
+						passwd(5) -the password file
+				-man -k {command name} -displays list of keyword matching man page topics with section numbers
+					Eg: $ man -k passwd
+					man -K - displays description  of keyword matching man page topics with section numbers
+		-navigating man pages
+			1.spacebar,pagedown -scroll forward(down)one screen
+			2.pageup-scroll backward(up)one screen
+			3.downarrow-scroll forward (down) one line
+			4.uparrow-scroll back(up) one line
+			5.d-scroll forward (down) one half screen
+			6.u-scroll backward (up) one half screen
+			7./string -search forward (down) for string in the man page
+			8.n-repeat previous search forward
+			9.N-repeat previous search backward
+			10.g-go to start of the man page
+			11.G-go to end of man page
+			12.q-to exit man page
+	B) Reading documentation using pinfo command
+		-command
+			1.pinfo {name of topic} or info {name of topic} - which give information more in depth
+	C) Reading documentation in /usr/share/doc
+	D) Getting help from red hat
+		customer portal - https://access.redhat.com/help/.
