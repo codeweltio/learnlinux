@@ -1,0 +1,52 @@
+Basics 
+------
+
+      Matching File Names Using Path Name Expansion
+      *********************************************
+
+    Pattern matching
+    ----------------
+    ( meta-characters and pattern classes )
+
+  -  *  :- Any string of 0 or more characters.
+  -  ?  :- Any single character. 
+  -  ~  :- The current user's home directory. 
+  -  ~username  :- User username's home directory.
+  -  ~+  :- The current working directory. 
+  -  ~-  :- The previous working d irectory.
+  -  [abc...]  :- Any one character in the enclosed class.
+  -  [!abc...] :- Any one character not in the enclosed class.
+  -  [^abc...] :- Any one character not in the enclosed class.
+  - [[:al pha:]] :- Any alphabetic character.
+  - [[:lower:]]  :- Any lower-case character.
+  - [[:upper:]]  :- Any upper-case character.
+  - [[:alnum:]]  :- Any alphabetic character or digit.
+  - [[:punct:]]  :- Any printable character not a space or alphanumeric. 
+  - [[:digit:]]  :- Any digit, 0-9.
+  - [[:space:]]  :- Any one whitespace character; may include tabs, newline, or carriage returns, and form feeds as well as space.
+
+    Brace expansion
+    ---------------
+    It is used to generate discretionary strings of characters. Braces contain a comma-separated list of strings, or a sequence expression.
+    eg:- 1. ~$ echo file{l..3}.txt
+            result - filel.txt file2.txt file3.txt
+         2. ~$ echo a{d,c,b}e
+            result - ade ace abe   
+
+    Command Substitution 
+    --------------------
+    It allows the output of a command to replace the command itself.
+    Eg:- ~$ echo Today is `date +%A`
+          Today is Friday
+          or
+         ~$ echo The time is $(date +%M) minutes past $(date +%l%p)
+         The time is 30 minutes past 12AM   
+
+     Protecting arguments from expansion 
+     -----------------------------------
+     To ignore meta-character special meanings, quoting and escaping are used to protect them from shell expansion.
+     The backslash(\) is an escape character in Bash, protecting the single following character from special
+     interpretation. To protect longer character strings, single (') or double quotes (") are used to enclose strings.
+
+     Eg:- echo "***** hostname is $(hostname) *****"
+          ***** hostname is ares-VirtualBox *****       
