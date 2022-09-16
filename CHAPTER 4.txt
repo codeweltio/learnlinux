@@ -1,0 +1,63 @@
+﻿CHAPTER 4. CREATING, VIEWING AND EDITING TEXT FILES
+
+1.	Output redirection operators
+	Redirection controls channel output to or from files
+		a.	> file: redirect stdout to a file
+		b.	>> file: redirect stdout to a file, append to current file content
+		c.	2 > file: redirect stderr to a file
+		d.	2 >/dev/null: discard stderr error message by redirecting to /dev/null
+		e.	&> file: combine stdout and stderr to one file
+		f.	>> file 2 >& 1: combine stdout and stderr, append to current file content
+	Examples:
+		a.	date > file path: save a timestamp for later reference
+		b.	tail -n 100 log file path > file path: copy last 100 lines from a log file to 
+		another file
+		c.	cat file1 file2 file3 file4 > file5 path: concatenate 4 files into one
+		d.	ls -a > file path: list home directories hidden and regular file names into a file
+		e.	echo “string” >> file path: display line or text and append out to an existing 
+		file
+		f.	diff file name >> file path: compare the two files line by line
+		g.	find file path 2 > file path: redirect error to a file
+		h.	find file path > file path 2 > /dev/null: ignore and discard error messages
+		i.	find file path &> file path: store output and generated errors together
+		j.	find file path >> file path 2>&1: append output and generated errors to an 
+		existing file
+
+2.	Construction pipelines
+	Piping sends channel output to another process 
+		a.	ls -l /usr/bin | less: paginate a commands long output 
+		b.	ls | wc -l > file path: count the number of lines in an output or listing
+		c.	tee: displays or redirects the intermediate result normally suppressed due to 
+		piping
+		d.	ls -l | tee file path: listing viewed in terminal, simultaneously stored in a file
+
+3.	Editing files with vim:
+	a.	Text files: they can be moved or shared between systems without requiring 
+		conversion and can be viewed and edited using any simple text editor
+	b.	Vim has basically four modes:
+		i.	Edit mode
+		ii.	Command mode
+		iii.	Visual edit mode
+		iv.	Extended command mode
+	c.	Short keys while editing:
+		i.	i: insert mode: all text typed becomes file content
+		ii.	esc: returns to command mode 
+		iii.	v: visual mode, multiple characters selected for text manipulation
+		iv.	V: multi-line selection
+		v.	ctrl-v: block selection
+		vi.	u: undo mistaken edits on the current line
+		vii.	x: delete a selection of text
+		viii.	w: to write (save the files and remain in command mode for editing)
+		ix.	wq: to write the files and quit vim
+		x.	q! : quit vim, discard all file changes since the last write
+		xi.	y: yank and p: put (copy and paste, done in visual mode)
+
+4.	Editing text files with graphical editor
+	To open g-editor, 
+		a.	Application – Accessories – gedit
+		b.	Alt + F2 – TYPE “gedit” – Enter
+	To create new file in gedit: click blank paper icon, ctrl-n
+	To save a file: save icon, ctrl-s
+	To open an existing file: File — open, ctrl-o 
+
+
