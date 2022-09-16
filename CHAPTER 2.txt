@@ -1,57 +1,57 @@
 ﻿CHAPTER 2. MANAGING FIELES FROM THE COMMAND LINE
 
 1. File system hierarchy
-a. / : System’s root directory
-b. /home: User home directories located under this
-c. /root: root accounts home directory
-d. /tmp: temporary files are stored here
-e. /run: Contains dynamic, non-persistent application runtime data
-f. /usr: Contains installed software programs and libraries
-g. /var: Contains dynamic configuration data such as FTP and websites
+  a. / : System’s root directory
+  b. /home: User home directories located under this
+  c. /root: root accounts home directory
+  d. /tmp: temporary files are stored here
+  e. /run: Contains dynamic, non-persistent application runtime data
+  f. /usr: Contains installed software programs and libraries
+  g. /var: Contains dynamic configuration data such as FTP and websites
 
 2. Absolute path: Beginning at the root (/)
-e.g., var/log/messages
+  e.g., var/log/messages
 
 3. Relative path: Path name starting anything other than (/)
-e.g., If present in var directory, log/messages
+  e.g., If present in var directory, log/messages
 
 4. Navigating paths
-a. pwd: Full path name of current location
-b. ls: lists directory contents
-Attributes: 
-ls -l: long listing format
-ls -a: all files including hidden files
-ls -R: include contents of all sub-directories
-c. cd: Change directories
-cd- : change directory to the directory where the user was previous to the current directory
-cd .. : move up one level to the parent directory
+  a. pwd: Full path name of current location
+  b. ls: lists directory contents
+  Attributes: 
+  ls -l: long listing format
+  ls -a: all files including hidden files
+  ls -R: include contents of all sub-directories
+  c. cd: Change directories
+  cd- : change directory to the directory where the user was previous to the current directory
+  cd .. : move up one level to the parent directory
 
 5. touch: practice files are created
 
 6. mkdir: create directories
-mkdir -p: create multiple directories
-e.g., mkdir -p shreya/documents/important (files created one inside the other)
-mkdir shreya mufi (two directories in same location)
+  mkdir -p: create multiple directories
+  e.g., mkdir -p shreya/documents/important (files created one inside the other)
+  mkdir shreya mufi (two directories in same location)
 
 7. cp: copy files
-a. copy a file from one directory to other
-cp [.path/file name] [.directory]
-b. copy more than one file from one directory to other
-              cp [.path/file1 name] [.path/file2 name] [.directory]
-c. copy directories
-cp -r [./direct] [./direct]
+  a. copy a file from one directory to other
+  cp [.path/file name] [.directory]
+  b. copy more than one file from one directory to other
+  cp [.path/file1 name] [.path/file2 name] [.directory]
+  c. copy directories
+  cp -r [./direct] [./direct]
 
 8. mv: move files
 9. rm: remove/delete files
-rmdir: remove directories
-rm -r: remove filled directories
+  rmdir: remove directories
+  rm -r: remove filled directories
 
 10. Pattern matching
-a. ls a*: File names beginning with a
-b. ls *a: File names ending with a
-c. ls *a*: File names containing a
-d. ls[!a]: File names where first character is not a
-e. ls ???*: File names at least 3-character length
+  a. ls a*: File names beginning with a
+  b. ls *a: File names ending with a
+  c. ls *a*: File names containing a
+  d. ls[!a]: File names where first character is not a
+  e. ls ???*: File names at least 3-character length
 
 
 
