@@ -1,33 +1,34 @@
 ﻿CHAPTER 3. GETTING HELP IN LINUX
 
 1. man: command searches manual sections in a configured order, display popular sections first
-a. Navigating man pages
-i. Space bar/ page down: scroll forward (down) one screen
-ii. Page up/b: scroll backward (up) one screen
-iii. Down arrow: scroll forward (down) one line
-iv. Up arrow: scroll backward (up) one line
-v. d:  scroll forward (down) one half screen
-vi. u: scroll backward (up) one half screen
-vii. /string: search forward (down) for string in man page
-viii. n: Repeat previous search forward (down) in man page
-ix. N:  Repeat previous search backward (up) in man page
-x. g: go to start of man page
-xi. G: go to end of man page
-xii. q: exit man and return to command shell prompt
-b. man -k keyword: list of keyword matching man page topics 
-man -K keyword: performs full text page search, takes more time
+  a. Navigating man pages
+    i. Space bar/ page down: scroll forward (down) one screen
+    ii. Page up/b: scroll backward (up) one screen
+    iii. Down arrow: scroll forward (down) one line
+    iv. Up arrow: scroll backward (up) one line
+    v. d:  scroll forward (down) one half screen
+    vi. u: scroll backward (up) one half screen
+    vii. /string: search forward (down) for string in man page
+    viii. n: Repeat previous search forward (down) in man page
+    ix. N:  Repeat previous search backward (up) in man page
+    x. g: go to start of man page
+    xi. G: go to end of man page
+    xii. q: exit man and return to command shell prompt
+    
+  b. man -k keyword: list of keyword matching man page topics 
+     man -K keyword: performs full text page search, takes more time
 
 2. pinfo: info documentation, more in depth
-a. Navigating GNU-info pages
-i. Space bar/ page down: scroll forward (down) one screen
-ii. Page up/b: scroll backward (up) one screen
-iii. d:  display the directory of topics
-iv. u: display the parent node of a topic
-v. Down arrow: scroll forward (down) to next hyperlink
-vi. Up arrow: scroll backward (up) to previous hyperlink
-vii. /string: search for a pattern
-viii. Enter: Open topic at cursor location
-ix. Quit program
+  a. Navigating GNU-info pages
+    i. Space bar/ page down: scroll forward (down) one screen
+    ii. Page up/b: scroll backward (up) one screen
+    iii. d:  display the directory of topics
+    iv. u: display the parent node of a topic
+    v. Down arrow: scroll forward (down) to next hyperlink
+    vi. Up arrow: scroll backward (up) to previous hyperlink
+    vii. /string: search for a pattern
+    viii. Enter: Open topic at cursor location
+    ix. Quit program
 
 3. redhat-support-tool: text base for use from any terminal or SSH connection, no graphical interface 
 
