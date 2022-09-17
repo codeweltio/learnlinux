@@ -1,0 +1,59 @@
+Basics 
+------
+
+        Getting Help In Linux 
+        *********************
+
+   1.Using man Command 
+   -------------------
+   - man :- command searches manual sections in a configured order, displaying popular sections first.
+            (To display the man page topic from a specific section, include the section number argument)
+
+   Navigating man pages
+   --------------------
+   - Spacebar or Page Down :- Scroll forward (down) one screen
+   - Page Up   :- Scroll backward (up) one screen
+   - DownArrow :- Scroll forward (down) one line
+   - UpArrow   :- Scroll back (up) one line
+   -  d        :- Scroll forward (down) one half-screen
+   -  u        :- Scroll backwa rd (up) one half-screen
+   - /string   :- Search forward (down) for string in the man page
+   -  n        :- Repeat previous search forward (down) in the man page
+   -  N        :- Repeat previous search backward (up) in the man page
+   -  g        :- Go to start of the man page
+   -  G        :- Go to end of the man page
+   -  q        :- Exit man and return to the command shell prompt  
+
+       * A keyword search of man pages is performed using
+        man -k keyword :- which displays a list of keyword-matching man page topics with section numbers.
+        man -K keyword :- option performs a full-text page search, not just titles.
+
+   2.Using pinfo Command  
+   ---------------------
+   - pinfo :- Documentation will be more in-depth        
+
+   Navigating pinfo pages
+   ----------------------
+   - Spacebar or Page Down :- Scroll forward (down) one screen 
+   - PageUp or b  :- Scroll backward (up) one screen
+   -  d      :- Display the directory of topics
+   -  u      :- Display the parent node of a topic 
+   - HOME    :- Display the top (up) of a topic 
+   - DownArrow :- Scroll forward (down) to next hyperlink
+   - Enter   :- Open topic at cursor location 
+   - UpArrow :- Scroll backward (up) to previous hyperlink
+   - /string :- Search for a pattern
+   -  n      :- Display next node (chapter) in topic 
+   - / then Enter  :- Repeat previous search forward (down)
+   -  page   :- Display previous node (chapter) in topic 
+   -  q      :- Quit the program    
+
+   3.Using /usr/share/doc
+   -------------------
+    (Use your choice of less Command, gedit, or a browser to view the documentation file contents)
+
+
+   4.Using redhat-support-tool
+   --------------------------- 
+   -(To search Knowledgebase) & (To manage support cases)
+    redhat-support-tool :- It's text-based for use from any terminal or SSH connection.
