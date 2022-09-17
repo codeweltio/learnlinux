@@ -1,0 +1,47 @@
+CREATING ,VIEWING AND EDITING TEXT FILES
+	A) Redirecting output to a file or program
+		# A process structure is constructed with a numbered channel
+		# Processes are created with default connections for channel 0 -STANDARD INPUT (stdin)- keyboard(default connection)-read only(usage)
+		# Processes are created with default connections for channel 1 -STANDARD OUTPUT (stdout)-Terminal (default connection)-write only (usage)
+		# Processes are created with default connections for channel 2 -STANDARD ERROR (stderr) -Terminal (default connection)-write only (usage)
+		# Processes are created with default connections for channels 3 and more -OTHER FILES (filename)-read and write
+	
+		NOTE:
+			COMMANDS :
+				> -CREATE A NEW  FILE IF NOT PRESENT OR OVERWRITES THE FILE ALREADY EXISTS
+				>> -CREATE A NEW  FILE IF NOT PRESENT,BUT IT APPENDS THE TEXT TO THE END OF THE FILE IF IT ALREADY EXISTS, RATHER THAN OVERWRITING THE FILE
+				    if we want to save the output from multiple commands to a single file
+				uname - print system information
+					ARGUMENTS - uname -a -print all information
+				find -search files in a directory
+
+			>file -redirect stdout to a file
+				Eg : ls > /home/mufeeda/ls_output.txt
+			>>file -redirect stdout to a file,append to current file content
+				Eg: uname -a ls >> /home/mufeeda/ls_output.txt
+			2>file -redirect stderr to a file
+				Eg: find /etc -name passwd 2> /tmp/errors
+			2>/dev/null -discard stderr error messages by redirecting to /dev/null
+				Eg: find /etc -name passwd > /tmp/output 2> /dev/null
+			&>file -combine stdout nd stderr to one file
+				Eg: find /etc -name passwd &> /tmp/save-both
+			>>file2>&1 -combine stdout and stderr append to current file
+				Eg: find /etc -name passwd >> /tmp/save-both 2>&1
+
+	B) CONSTRUCTING PIPELINES
+		 1. paginate a commands long output -Eg:  ls -l /home/mufeeda/ls_output.txt | less
+		 2. count the number of lines in an output or listing -Eg: ls | wc -l > /home/mufeeda/ls_output.txt
+		 3.grab the first lines , last lines or selected lines of command output EG : ls -t | head -n 10 > /home/mufeeda/ls_output.txt
+			COMMANDS: tee- displays or redirect the intermediate result normally suppressed due to piping
+				   tty - to determine the terminal device for current window --- /dev/pts/0
+
+
+NOTE :
+		1.Display command output to terminal , ignore all errors --- 2 >/dev/null
+  		2.send command o/p to file, errors to different file ----- >file2>file2
+		3.send o/p and errors to the same new,empty file ------ &>file
+		4.send o/p and errors to the same file ,but preserve existing file ----- >>file2>&1
+		5.run a command,but throw away all possible terminal displays------ &>/dev/null
+		6.send command o/p to both the screen and a file at the same time ------ |tee file
+		7.run command save o/p in a file discard error messages ----- >file2> /devnull
+				  
