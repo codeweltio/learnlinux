@@ -1,0 +1,25 @@
+EDITINFG FILES WITH VIM
+1. vim installation.
+	 	
+	i - to start writing in vim
+	Esc -returns to command mode
+	v -visual mode ,where multiple characters may be selected for text manipulation
+	V -multiline
+	ctrl-v -for block selection
+	v,V or ctrl-v -to exit
+	: - begins extended command 
+	:w {file name} -to save a file
+	:wq -to write a file and quit vim
+	:q! -to quit vim but discard all file changes since the last write
+	y (yank) -copy the selection
+	p (put)-paste the selection
+
+EDITING FILES WITH gedit (graphical editor)
+	
+	gedit -enter  : to open 
+	to create a new file in gedit ,click the blank paper toolbar icon or select file > new ctrl-n)
+	to save a file click the disk-drive save toolbar icon, or select file > save(ctrl-s)
+	to open  an existing file ,click open or file>open (ctrl-o)
+	ctrl-c-to terminate the current running process
+	ctrl-shift-c -to copy within the terminal window
+	ctrl-shift-v -to paste within the terminal window
