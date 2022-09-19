@@ -1,0 +1,93 @@
+﻿CHAPTER 5. MANAGING LOCAL LINUX USERS AND GROUPS
+
+	1. id: show information about the current logged in user
+ 
+	2. ls -l: third column shows the user associated with the file
+
+	3. ps: to view process information
+
+	4. ps au:    a: to view all process with a terminal
+               	 u: user associated with a process
+
+	5. Groups have a name and number (GID)
+		a. Local groups defined in: /etc/group
+		b. Every user has exactly one primary group
+		c. GID number of group: third field of etc/passwd
+
+	6. su: switch the current user to any other user
+
+	7. su <username>: switch to that particular user
+
+	8. su -: default changes to root account
+
+	9. For root account all privileges are granted
+
+	10.  sudo: allows a user to be permitted to run a command as root
+ 	     sudo requires to enter their own password
+
+	11. echo $HOME: variables that specify the home directory
+	12. echo $PATH: locations searched for executable files
+
+	13. useradd username: create users
+
+	14. Modify existing user: usermod –help
+		a. -c: --comment COMMENT: Add a value to GECOS files 
+		b. -g: --gid GROUP: Specify primary group for user account
+		c. -G: --groups GROUPS: Specify a list of supplementary groups for user
+		d. -a: --append: Used with -G, append user to supplementary groups without removing from other groups
+		e. -d: --home HOME_DIR: Specify new home directory
+		f. -m: --move-home: move users home directory to a new location
+		g. -s: --shell SHELL: Specify a new login shell
+		h. -L: --lock: lock a user account
+		i. -u: --unlock: Unlock a user account
+
+	15. userdel username: Removes user but leaves the home directory
+	    userdel -r username: Removes the user and users home directory
+	    If deleted without -r, new user will be assigned with the existing 
+
+	16. passwd username: set users initial password or change that user’s password
+
+	17. UID Ranges
+		a. UID 0: Superuser account, root
+		b. UID 1-200: System users assigned statically to system processes by red hat
+		c. UID 201-999: System users used by system processes that do not own files on the file system, typically assigned when software needs them installed
+		d. UID 1000+: Assignment to regular users
+
+	18. Managing local group accounts
+		a. groupadd groupname: creates new group
+		b. sudo groupadd -g [GID] groupname: Specify a GID
+		c. sudo groupadd -r groupname: Create a system group using a GID from the range of valid system GID 
+		   number listed in /etc/login.defs
+	d. sudo groupmod -n name newname: Modify group name to new name
+	e. sudo groupmod -g 6000 groupname: Specify new GID to existing group
+	f. sudo groupdel groupname: remove a specific group
+	g. usermod -g groupname: change a user’s primary group
+	h. sudo usermod -aG groupname username: Add a user to a supplementary group
+	   “-a” without it, user would be removed from all other supplementary groups 
+
+	19. Managing user passwords
+		a. Three pieces of information stored in a modern password hash:
+			i. Type of hash
+				“1” indicates an MD5 hash
+				“6” appears when a SHA -512 hash is used
+			ii. Salt used to encrypt the hash
+				Salt + unencrypted password= encrypted password
+			iii. Encrypted hash
+		b. /etc/shadow format:
+			Name, passwd, last change, min age, max age, warning, inactive, expire, blank
+		c. Password Aging:
+			i. -d: last change date 
+			ii. -m: minimum days
+			iii. -M: maximum days
+			iv. -W: Warning days
+			v. -I: Inactive days
+			vi. chage -m -M -I username
+			vii. chage -d 0 username: force password update on next login
+			viii. chage -l username: list username’s current settings
+			ix. chage -E YYYY-MM-DD: expire account on a specific day
+			x. date -d “+45 days”: calculate date in future
+			xi. sudo usermod -L shreya: Lock an account Shreya
+			xii. sudo usermod -U Shreya: Unlock the account
+			for use such as when a user has left the company the account is locked
+
+
