@@ -1,0 +1,65 @@
+Basics 
+------
+
+     CREATING, VIEWING, AND EDITING TEXT FILES
+          *****************************
+
+    Redirecting Output To A File Or Program 
+    ---------------------------------------
+
+    NOTE
+    ----
+    - A process structure is constructed with numbered channels called file descriptors.
+    - channels 0, 1, and 2, known as standard input, standard output, and standard error.
+    - channels 3+ denotes other files.
+
+    -Redirection Characters To Control Output To Files
+             -----------------------------
+
+     - >file   :- redirect stdout to a file
+     - >>file  :- redirect stdout to a file, append to current file content
+     - 2>file  :- redirect stderr process to a file
+     - 2>/dev/null :- discard stderr error messages by redirecting to /dev/null
+     - &> file  :- combine stdout and stderr to one file
+     - &>> file :- combine stdout and stderr to append to current file content
+     
+    Constructing Pipelines
+    ----------------------
+    -Redirection controls channel output to or from files while piping sends channel output to another process. (using | )
+
+      - 'tee' command displays or redirects the intermediate result normally suppressed due to piping.
+      - 'tty' command basically prints the file name of the terminal connected to standard input.
+
+    Editing files with Vim 
+    ---------------------
+    -Vim is highly configurable and efficient for users, including such features as split screen editing,
+     color formatting, and highlighting for editing text.  
+     (Vim starts in command mode, used for navigation, cut and paste, and other text manipulation.)
+
+       Modes
+       ----
+     - i  :- enters insert mode   
+     - esc :- returns to command mode
+     - v  :- enters visual mode (where multiple characters may be selected for text manipulation)
+       - V  :- for multi-line 
+       - ctrl+v :- for block selection
+       (same keystroke used to enter visual mode is used to exit)
+     - :  :- keystroke begins extended command mode for tasks like writing the file to save it and quitting the Vim editor.    
+     - u  :- to undo mistaken edits on the current line.
+     - x  :- to delete a selection of text
+     - dd :- delete line
+     - :w :- to write (save) the file and remain in command mode for more editing.
+     - :wq or shift+zz :- to write the file and quit Vim
+     - :q! :- to quit Vim, but discard all file changes since the last write. 
+     -  y  :- to yank(copy) the selection
+     -  p  :- to put(paste) the selection
+     - :set number :- shows number for each line
+       :set nonumber :- to remove it
+     - gg :- to top of the file
+     - G  :- bottom of file
+     - 0 or Home :- start of line
+     - $ or End  :- end of line
+
+     Editing files with gedit 
+     ------------------------
+    -The gedit application is a text editor    
