@@ -1,0 +1,66 @@
+MANAGING LOCAL LINUX USERS AND GROUPS
+	1.USERS AND GROUPS
+		-Every process on the system runs as a particular user.
+		-id -to show information about the current logged in user.
+			id {username} -display information for username ,includes users UID number and group memberships.
+		-ps -to view process information(current shell)
+		-ps a -to view all process with a terminal.
+		-ps au -to view the user assossciated with aprocess.
+			NOTE: ps au shows the operating systems tracks users by UID number.
+		/etc/passwd to store information about local users.it consists of 1.username: ,2.password:,3.UID:,4.GID ,5.GECOS: ,6./home/dir: ,7.shell
+			1.username -mapping of a UID to a name for the benefit of human users
+			2.password -stored in a seperte file- /etc/shadow
+			3.UID -user ID ,which identifies the user at the most fundamental level
+			4.GID -users primary group id number
+			5.GECOS - arbitary text,includes users real name
+			6./home/dir -location of the users personal data and configuration files.
+			7.shell program that run as the users logs in.	
+	2.GROUP
+		- /etc/group -local groups
+		-primary groups -every group have exactly one primary group
+			-here contain new files created by the user
+		-supplementary group -users may be a 0 or more supplementary groups.
+	
+	3.GAINING SUPERUSER ACCESS
+		-SUPERUSER-root user-used to manage and administer the system.
+		-su -to switch to a different user account
+		-sudo bash -to open as root user
+		-exit -to return back to user account
+		-echo -to display a line of text
+		-sudo {path of file} -to copy or remove or edit any extention file start with "sudo"
+			Eg: sudo cp /etc/passwd /etc/passwdnew
+			    sudo rm /etc/passwdnew
+			    sudo edit /etc/passwdnew
+	4.MANAGING LOCAL USER ACCOUNTS
+		-useradd --help -will display the basic options that can be used to override the defaults.
+		-usermod --help -will display the basic options that can be used to modify an account.
+			-c comment - add a value such as a full name to the GECOS feild.
+			-g gid -specify the primary group for the user account.
+			-G groups -specify a list of supplementary groups for the user account.
+			-a -used with -G option to append the user to the supplemental groups mentioned without removing the user from other groups.
+			-d home -specify a new home directory for the user account.
+			-m move -move a user home directory to a new location.must be used with the -d option
+			-s shell -specify a new login shell for the user account.
+			-L lock -loack a user account.
+			-U unlock -unlock a user account.
+		-userdel {username} -to remove user from extension file but leaves home directory.
+			-userdel -r {username} removes the user and home directory.
+		-passwd {username} -to nset users initial password or change that users password.
+	5.UID ranges
+		-UID 0 -assigned to super user account,root.
+		-UID 1-200 -range of system users assigned statically to system proceses by RED hat.
+		-UID 201-999 -assigned dynamically from the available pool when the software needs them installed.
+		-UID 1000+ -assignment for regular users.
+	6.MANAGUNG LOCAL GROUP ACCOUNTS
+		-groupadd groupname -without options uses the next available GID from the range specified in the extension file.
+			-g GID -to specify specific GID Eg; sudo groupadd -g 5000 ateam
+			-groupadd -r -create a system group using a gid FROM THE RANGE OF VALID SYSTEM NUMBERS LISTED IN THE /ETC/LOGIN.DEFS FILE Eg : sudo groupadd -r {groupname}
+		-groupmod -modifies existing groups.{to change a group name to a GID mapping}.
+			-groupmod -n -to specify a new name.
+			-groupmod -g -to specify new GID
+		-groupdel -delete group
+		-usermod -g groupname -to change users primary group.
+			- usermod -aG groupname username -add users to a supplementary group.
+				
+
+		
