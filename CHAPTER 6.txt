@@ -1,0 +1,71 @@
+﻿CHAPTER 6. CONTROLLING ACCESS TO FILES WITH LINUX FILE SYSTEM PERMISSION
+
+1. Files have three categories of user to which permissions apply:
+	a. User: who created the file
+	b. Group: primary group of users
+	c. Others: Users on the system, not users or owing group
+
+2. Three Categories of permissions are given:
+	a. Read (r)
+		i. Files: Contents of files can be read
+		ii. Directories: Contents of directory (file name) can be listed 
+	b. Write (w)
+		i. Files: Contents of file can be changed
+		ii. Directories: Any file in the directory may be created or deleted
+	c. Execute (x)
+		i. Files: Files can be executed as commands
+		ii. Directory: Contents of the directory can be accessed (dependent on the permission of the files)
+
+3. Viewing file/directory permission and ownership
+	a. ls -l directoryname
+	b. ls -ld directoryname: -d to prevent descendant
+	c. Format:  - rwx rwx rwx 
+		i. - : indicates the file type, -d: directory
+		ii. First rwx: User permission
+		iii. Second rwx: Group permission
+		iv. Third rwx: Others permission
+
+4. Changing file/directory permission:
+	a. chmod: change permissions from command line 
+	b. Symbolic method
+		i. chmodwhowhatwhich file/directory
+			1. who: u,g,o,a [ user, group, others, all]
+			2. what: +, -, = [add, remove, set exactly]
+			3. which: r, w, x [read, write, executable]
+	c. Numerical method
+		i. chmod ### file/directory
+			1. Each # represents an access level: user, group, others
+			2. #: sum of r=4, w=2, x=1
+		ii. chmod -R: permissions on an entire directory tree, when using -R use X instead of x
+
+5. Changing file/directory user or group ownership
+	a. chown newowner filename
+	b. chown -R: to change the ownership of entire directory
+	c. chown: newowner groupname
+	d. chown owner: group file: change owner and group at same time
+	e. chgrp: change group ownership same way as chown  
+
+6. Managing default permissions and file access
+	a. Symbolic:
+		i. u+s (set uid): 
+		File: File executes as user that owns the file not the user that ran the file
+		Directory: No effect
+		ii. g+s (set gid):
+		File executes as the group that owns the file
+		Directory: Files created match the group owner of directory
+		iii. o+t (sticky): 
+		Files: No effect
+		Directory: user with write permission can only remove files that they own
+	b. Numerical: 
+		i. Setuid= 4
+		ii. Setgid= 2
+		iii. Sticky=1
+	c. chmod g+s directory (symb)
+	d. chmod 2770 directory (numer)
+
+7. Default files
+	a. txt files: read, write, execute
+	b. mkdir: create directory with all permissions
+
+8. umask 0: no mask to any of the permissions
+   can follow 0,2,7
