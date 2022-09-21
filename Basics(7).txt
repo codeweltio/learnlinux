@@ -1,0 +1,49 @@
+Basics 
+------
+   
+   MANAGING LOCAL LINUX USERS AND GROUPS 
+      ****************************
+   USER
+   ----
+   Accounts that can be used to login into a system. Each user is identified by a unique identification number or UID by the system.
+
+   - id :- command is used to show information about the current logged-in user.
+         - id username :- To view information about another user
+
+   - ps :- To view process information    
+         - ps a :- To view all processes  
+         - ps au :- To view the user associated with a process
+
+   -  /etc/passwd :- file, to store information about local users.
+
+         eg:- ares:x:1000:1000:Ares,,,:/home/ares:/bin/bash
+             (1)username:(2)password:(3)UID:(4)GID:(5)GECOS:(6)/home/dir:(7)shell
+
+         (1)username is a mapping of a UID to a name for the benefit of human users. 
+         (2)password is where, passwords were kept in an encrypted format. They are stored in a separate file called /etc/shadow. 
+         (3)UID is a user ID, a number that identifies the user at the most fundamental level
+         (4)GID is the user's primary group ID number.
+         (5)GECOS field is arbitrary text, which usually includes the user's real name.
+         (6)/home/dir is the location of the user's personal data and configuration files
+         (7)shell is a program that runs as the user logs in
+
+   Group  
+   -----
+   Groups have a name and a number (GID). Local groups are defined in /etc/group
+
+     1.Primary Groups :- • Every user has exactly one primary group.
+
+     2.Supplementary Groups  :- • Users may be a member of 0 or more supplementary groups. 
+                                • Used to help users have access permissions to files and other resources on the system.
+
+    Gaining Superuser Access 
+    -----------------------
+     root user  :- also called superuser, a user that has all power over the system 
+
+    - su :- command allows a user to switch to a different user account.                  
+          ( su username :-starts a non-login shell)
+          ( su - username :-starts a login shell)
+
+    - sudo :- command allows a user to be permitted to run a command as root, or as another user  
+
+    - exit  :- Exit the root to return to the user.
