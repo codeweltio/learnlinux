@@ -1,0 +1,77 @@
+Basics 
+------
+   
+   Managing Local Users 
+   -------------------
+
+ - useradd (username) :- creates users
+      -useradd --help :- will display the basic options that can be used to override the defaults
+
+ - usermod username :- used to modify an account. 
+      -usermod --help :- will display the basic options that can be used to modify an account.
+
+        - c (or) --comment COMMENT :- Add a value, such as a full name, to the GECOS field.
+        - g or --gid GROUP       :- Specify the primary group for the user account.
+        - G or --groups GROUPS   :- Specify a list of supplementary groups for the user account.
+        - a or --append          :- Used with the -G option to append the user to the supplemental groups mentioned without removing the user
+                                    from other groups.
+        - d or --home HOME_DIR   :- Specify a new home directory for the user account.
+        - m or --move-home       :- Move a user home directory to a new location. Must be used with the -d option.
+        - s or --shell SHELL     :- Specify a new login shell for the user account.
+        - L or --lock            :- Lock a user account.
+        - U or --unlock          :-Unlock a user account. 
+
+ - userdel username :- removes the user from /etc/passwd ,but leaves the home directory intact by default. 
+       - userdel -r username  :- removes the user and the user's home directory. 
+
+ - passwd username  :- can be used to either set the user's initial password or change that user's password.
+
+ NOTE
+ ----
+ UID Ranges - 
+             • UID 0  :- assigned to the superuser account, root.
+             • UID 1-200 :- "system users" assigned to system processes by LINUX
+             • UID 201-999 :- "system users" assigned dynamically from the available pool when the software that needs them is installed. 
+             • UID 1000+  :- assignment to regular users. 
+
+   Managing Local Group Accounts
+   ----------------------------
+       
+       - groupadd (groupname) :- creates groups
+           -  -g :- used to specify a specific GID.
+           -  -r :- will create a system group using a GID from the range of valid system GID numbers listed in the /etc/login.defs file. 
+
+       - groupmod :- command is used to change a group name to a GID mapping.
+           -  -n  :- option is used to specify a new name. 
+           -  -g  :- option is used to specify a new GID. 
+
+       - groupdel :- command will remove a group.          
+
+
+       - usermod -g groupname :- Change a user's primary group
+       -  usermod -aG groupname username :- Add a user to a supplementary group 
+                                           (Without -a , the user would be removed from all other supplementary groups)
+
+   Managing User Passwords 
+   ----------------------
+   There are three pieces of information stored in a modern password hash+
+     1. The hashing algorithm. The number 1 indicates an MD5 hash. The number 6 appears when a SHA-512 hash is used.  
+     2. The salt used to encrypt the hash. (use of a salt prevents two users with the same password from having identical entries) 
+     3. The encrypted hash
+
+   /etc/shadow format  :- name:password:lastchange:minage:maxage:warning:inactive:expire:blank
+
+   Password Aging
+     ---------
+    - chage :- change user password expiry information
+       -  -d  :- will force a password update on next login.
+       -  -1  :- will list a username's current settings.
+       -  -E  :- will expire an account on a specific day. 
+       -  -l  :- Show account aging information.
+       -  -W  :- Set the number of days of warning before a password change is required.
+       -  -M  :- Set the maximum number of days during which a password is valid.
+
+   Restricting Access
+    ---------------
+    - The usermod command can lock & unlock an account
+    - Use of the nologin shell prevents interactive use of the system
