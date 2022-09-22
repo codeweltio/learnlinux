@@ -1,0 +1,63 @@
+﻿CHAPTER 7. MONITORING AND MANAGING LINUX PROCESSES
+
+1. Process
+	a. Existing (parent) process duplicates its own address space [fork] – new (child) process structure
+	b. Every new process – unique process id (PID)
+	c. Parent process sleeps while child process runs, set a request (wait)
+	d. After exit of child, remainder – Zoombie
+
+2. Process States
+	a. R: Running: TASK_RUNNING: Process is either executing on a CPU or waiting to run
+	b. S: Sleeping: TASK_INTERRUPTIBLE: Process is waiting for some condition. When event or signal satisfies the condition, the process returns to running
+	c. D: TASK_INTERRUPTIBLE: Will not respond to delivered signals
+	d. K: TASK_KILLABLE: Allow the waiting task to respond to a signal to be killed 
+	e. T: TASK_STOPPED: Process been stopped by being signalled by a user or another process
+	f. T: TASK_TRACED: Process being debugged, setup stopped
+	g. Z: EXIT_ZOOMBIE: Child process signals its parent as it exits
+	h. X: EXIT_DEAD: When parent cleans up, processes released completely
+
+3. Listing Process
+	a. ps: listing current processes
+	ps supports three option formats
+		i.  UNIX, must be preceeded by a dash
+		ii. BSD, must mot be used with a dash
+		iii. GNU, preceeded by two dashes
+	b. ps aux: display all columns
+	c. ps lax: long listing, more technical detail, display faster avoiding username
+	d. ps -ef: display all processes
+
+4. Running jobs in the background
+	a. Ampersand (&) to the command line
+	b. jobs: tracks jobs per session
+	c. fg (% jobnumber): background jobs brought to foreground
+	d. ps j: display job info
+	e. ctrl-z: to resend to background
+	f. bg (%job no.) Restart the process
+
+5. Killing Processes
+Process control using signals
+	a. 1. HUP. Hang up: Report a termination of the controlling process of a terminal. Request process re initialization without termination
+	b. 2. INT. Keyboard Interrupt: Cause program termination can be blocked or handled, sent by typing INTR character (ctrl-c)
+	c. 3. QUIT. Keyboard Quit: Similar to SIGINT, but also produces a process dump at termination, sent by typing QUIT character (ctrl-\)
+	d. 9. KILL. Kill Unblockable: causes abrupt program termination, cannot be blocked, ignored or handled always fatal
+	e.  15. TERM. Terminate: Cause program termination, can be blocked, ignored or handled. Polite way to ask a program to terminate
+	f. 18. CONT. Continue: Sent to a process to resume if stopped, cannot be blocked
+	g. 19. STOP. Stop unblockable: suspends the process. Cannot be blocked or handled
+	h. TSTP. Keyboard stop: can be blocked, ignored or handled, SUSP char (ctrl-2)
+
+6. Each signal has a default action usually one of the following
+	a. Term: cause a program to terminate at once
+	b. Core: cause a program to save a memory image and then terminate
+	c. Stop: cause a program to stop executing and wait to continue
+	d. Suspend: ctrl-z
+	e. Kill: ctrl-c
+	f. Core dump: ctrl-\
+	g. kill: signal to one process by ID
+	h. killall: one or more process matching selection criteria
+	i. pkill: advanced killall
+
+7. Logging users out Administratively
+	a. w: views users currently logged into the system 
+	b. TTY and FROM column determine users’ location
+	c. w -f: connecting system name
+	d. ps tree -p: to view a process tree for the system
