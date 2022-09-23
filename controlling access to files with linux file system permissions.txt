@@ -1,0 +1,28 @@
+CONTROLLING ACCESS TO FILES WITH LINUX FILE SYSTEM PERMISSIONS
+		-permissions - r(read) -contents of the file can be read			
+			     -w (wite) contents of the file can be changed
+			     -x(exec) -files can be executed.
+		-chmod -to change permission from the command line -symbolically & numerically
+				-u -user
+				-g -group
+				-o -other
+				-a -all
+				-(+) -to add permissions to a set
+				- (-) -to remove permission from a set
+				- (=) -to replace the entire set for a group of permissions
+		     		-for read permission - 4
+				-write -2
+				-execute -1
+					Eg: -rwxr-x--   rwx =4+2+1=7  , r-x =4+0+1=5  , -- =0  ie, 750
+					     chmod go - rw file12  - remove read and write permission for group and other on file12
+				 NOTE ; ONLY ROOT CAN CHANGE OWNERSHIP
+				-chmod -R g+rwX - RECURSIVELY SETTING PERMISSSION ON A ENTIRE DIRECTORY
+						-X represent execute permissions only on directories
+				-chown -file ownership can be changed
+					-Eg : chown {newownername} {filename}
+					-chown -R -TO CHANGE OWNERSHIP OF ENTIRE DIRECTORY
+					-chown :{groupname} {filename} -to change ownership of a group
+					-chown {newownername}:{new groupname} {filename} -to change both owner and groupname at the same time
+				-chgrp -to change groupownership
+				-umask -display the current value of shell masks
+				-
