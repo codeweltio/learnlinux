@@ -1,0 +1,66 @@
+﻿CHAPTER 8. CONTROLLING SERVICES AND DAEMONS
+
+1. Daemons: Process that wait or run-in background performing various tasks
+	a. Start automatically at boot time, continue until shut down or until manually stopped
+	b. Names of Daemon program end in letter ‘d’
+	c. To listen to connections, daemons use socket
+	d. Socket passed to daemon when a connection is established by the client
+
+2. systemctl: manage different types of system objects (units)
+	a. .service extension: service units used to start frequently accessed daemons
+	b. .socket extension: represent inter process communication (IPC)
+	    Used to delay the start of a service at boot time, to start less frequently used service on demand
+	c. .path extension: delay the activation of a service until a specific file system changes occurs. E.g. printing system
+
+3. Keywords indicating states of service
+	a. loaded: unit configuration file has been processed 
+	b. active (running): running with one or more continuing process
+	c. active (exited): successfully completed a one-time configuration
+	d. active (waiting): running but waiting for an event
+	e. inactive: not running
+	f. enabled: will be started at boot time
+	g. static: cannot be enabled, but may be started by an enabled unit automatically
+	h. systemctl: state of all units
+	i. systemctl –type = service: state of only service units
+	j. systemctl status rngd.service -l
+	k. systemctl is-active sshd: to determine if active
+	l. systemctl is-enabled sshd: to determine if the unit is enabled to start at boot time
+	m. systemctl list-units –type=service: list active status of all loaded units
+	n. systemctl –failed –type=service: view only failed services
+
+4. Controlling system services
+	a. systemctl status ssh. service: view status of service
+	b. ps -up PID: Verify that the process is running
+	c. systemctl stop sshd.service
+	   systemctl status sshd.service: stop the service and verify the status
+	d. systemctl start sshd.service
+	e. systemctl status sshd.service: start the service and view the status
+5. Controlling system services
+	a. systemctl list-dependencies UNIT: print out a tree of what other units must be started if specified unit is started
+	b. – reverse: what units need to have the specified unit started in order to run
+
+6. Masking services
+	a. To prevent an admin from accidently starting a service that service need to be masked
+		i. systemctl mask network
+		ii. systemctl unmask network
+
+7. Enabling system daemons to start or stop at boot
+	a. Enable and disable the service 
+		i. systemctl disable sshd.service
+		ii. systemctl status sshd.service
+		iii. systemctl enable sshd.service
+
+8. Summary of systemctl commands
+	a. systemctl status UNIT: view detailed information about a unit state
+	b. systemctl stop UNIT: stop a service on a running system
+	c. systemctl start UNIT: start a service on a running system
+	d. systemctl restart UNIT: restart a service on a running system
+	e. systemctl reload UNIT: reload configuration of a running service
+	f. systemctl mask UNIT: completely disable a service from being started, both manually and at boot
+	g. systemctl unmask UNIT: make a masked service available
+	h. systemctl enable UNIT: configure a service to start at boot time
+	i. systemctl disable UNIT: disable a service from starting at boot time
+	j. systemctl list-dependencies UNIT: list units which are required and wanted by the specified unit
+
+
+
