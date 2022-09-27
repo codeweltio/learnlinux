@@ -1,0 +1,27 @@
+MONITORING AND MANAGING LINUX PROCESES
+
+		LINUX PROCESS STATES
+			R-running-task running : the process is either executing on a cpu or waiting to run
+			S-task imterruptible : the process is waiting for some condition
+			D-task uninterruptible : this process is also sleeping but will not respond to delivered signal
+			K-task killable : identical to D state but modified to allow the waiting task to respond to a signal to be killed.
+			T-task stopped : the process has been suspended by any uiser or another process.
+			Z-exit zombie : a child process signals its parent as it exists.
+			X-exit dead : wehn a parent cleans up the remaining child process structure ,the process is now released completely.
+		ps - used for listing current process
+			-UID which detrermines process privileges.
+			-PID -unique process identification.
+			-cpu and real time already expended.
+			-how much memory the process has allocated in various locations.
+			-the location of process STDOUT
+			-the current procees state.
+		ps aux -display all process with column in which users will be interested and includes processes without a controlling terminal.
+		ps lax -long listing -provide more technical detail.
+		ps -ef -display all process
+		any command started in the background by appendimg an ampersand & to the command line will display job number -Eg: sleep 1000 &
+													     [1] 2970
+		jobs -which tracks jobs  per session 
+		fg %{job number} -background jobs can reconnect to the controlling terminal by being brought to the foreground.
+		ps j -displays job information including the initial command shell of each session.
+		bg %{job number} -to restart the process in the background.
+		
