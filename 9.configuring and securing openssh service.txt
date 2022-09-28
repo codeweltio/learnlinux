@@ -1,0 +1,17 @@
+configuring and securing openssh service
+	ssh -used to remotely log into the system
+	    -to run an individual command on a remote system
+	w -f - displays a list of currently logged into the computer
+	ssh remotehost : to create a remote interactive shellas current user
+	ssh remoteuser@remotehost : connect remote shell as a different user on a selected host
+	ssh remoteuser@remotehost hostname : execute a single command on a remote host and as a remote user
+	/etc/ssh/*key* -host keys are stored.
+	~/.ssh/known_hosts -host id's are stored
+
+ -configuring ssh key based authentication
+		- ssh-keygen :command used to generate key
+			- ~/.ssh/id_rsa -private key
+			- ~/ssh/id_rsa.pub -public key
+		-ssh-copy-id : to copy the public key into destination system
+ 
+		 
