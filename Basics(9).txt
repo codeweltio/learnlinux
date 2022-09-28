@@ -1,0 +1,85 @@
+Basics 
+------
+   
+    Linux File System Permissions
+    -----------------------------
+    
+    Effects of permissions on files and directories 
+        **********************************
+     Three Categories Of User
+      ----------------------
+      1. User(u)
+      2. Group(g)
+      3. Other(o)  
+
+     Three Categories Of Permissions 
+     ------------------------------
+      1. read(r) 
+      2. write(w)
+      3. execute(x)
+
+     Effects Of Permissions On Files And Directories 
+     ----------------------------------------------
+      - read :-
+               - Files :- Contents of the file can be read.
+               - Directories :- Contents of the directory (file names) can be listed.
+
+      - write :- 
+                - Files :- Contents of the file can be changed. 
+                - Dir :- Any file in the directory may be created or deleted.
+
+      - execute :-
+                  - Files :- Files ca n be executed as commands. 
+                  - Dir :- Contents of the directory can be accessed (dependent on the permissions of the files in the directory)         
+
+    Viewing file/directory Permissions And Ownership 
+    -----------------------------------------------
+    - ls -l {directoryname} :- will show the expanded listing of all of the files
+                      - -d  :- To prevent the descent into the directory
+                      - -R  :-  for recursively setting permissions on an entire directory tree , be sure to use the X permissions
+                                instead of the x permission to indicate that execute permissions should only be set on
+                                directories, and not regular files.
+
+    Changing file/directory Permissions
+    -----------------------------------
+    - chmod :- modifies the permissions of the file or directory
+
+      Symbolic method keywords :-  chmod WhoWhatWhich file | directory
+                                   • Who :- u, g, o, a (for user, group, other, all)
+                                   • What :- +, -, = (for add, remove, set exactly)
+                                   • Which :- r, w, x (for read, write, executable)
+
+      Numeric method :- chmod ### file | directory 
+                        • Each digit represents an access level: user, group, other
+                        • # is sum of r=4, w=2, and x=1 
+
+    Changing file/directory User Or Group Ownership
+    -----------------------------------------------
+    - chown :- Change file owner and group   
+       - -R :- to recursively change the ownership of an entire directory tree. 
+       - :group :- used to change group ownership of a file .
+       - owner:group :- used to change both owner and group at the same time.
+
+    Managing Default Permissions and File Access
+    --------------------------------------------
+
+    Effects of special permissions on files and directories 
+    -------------------------------------------------------
+      - u+s (setuid) :- 
+                        - Files :- File executes as the user that owns the file, not the user that ran the file. 
+                        - Directories :- No effect. 
+
+      - g+s (setgid) :- 
+                        - Files :- File executes as the group that owns the file.
+                        - Directories :- Files newly created in the directory  have their group owner set to match the
+                                         group owner of the directory.
+
+      - o+t (sticky) :- 
+                        - Files :- No effect.    
+                        - Directories :- Users with write on the directory can only remove files that they own    
+
+       Numerically :- setuid = 4; setg id = 2; sticky = 1  
+
+    Default file permissions
+    ------------------------
+    -  umask :- will display the current value of the shell's umask:                                                   
