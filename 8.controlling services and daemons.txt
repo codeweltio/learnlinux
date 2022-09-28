@@ -1,0 +1,22 @@
+controlling services and daemons
+	-systemctl -to manage different types of systemd objects-ie,"units"
+	-systemctl -t help -to display list of available units.
+	-systemctl status name.type -to view the status of a service 
+		-loaded : unit configuration file has been processsed
+		-active(running) : running with one or more continuing processes
+		-active (exited): successfully completed a one time configuration
+		-active(waiting) - running but waiting for an event
+		-inactive : not running
+		-enabled : will be started at boot time.
+		-disabled : will not be started at boot time
+		-static : cannot be enabled but may be started by an enabled unit automatically
+	-systemctl status UNIT -view detailed information about a unit state
+	-systemctl stop UNIT -stop a service on a running system
+	-systemctl start UNIT -start a service on a running system
+	-systemctl restart UNIT -restart a service on a running system
+	-systemctl reload UNIT ; reload configuration file  on a running system
+	-systemctl unmask UNIT :make a masked service available
+	-systemctl mask UNIT :completely disable a service from being started ,both manually and at boot
+	-systemctl enable UNIT: configure a service to start at boot time
+	-systemctl disable UNIT: disable a service from starting at boot time
+	-systemctl list-dependencies UNIT : list units which are required and wanted by the specified unit
