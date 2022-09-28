@@ -1,0 +1,24 @@
+﻿CHAPTER 9. CONFIGURING AND SECURING OPENSSH SERVICE
+
+1. Accessing the remote command line with SSH
+	a. ssh remotehost: create a remote interactive shell as the current user
+	b. ssh remoteuser@remotehost: connect to a remote shell as a different user on a selected host 
+	c. ssh remoteuser@remotehost hostname: execute a single command on a remote host and as a remote user
+	d. w -f: display list of users currently logged in 
+
+2. SSH Host keys
+	a. cat ~/.ssh/known_hosts: Host id’s are shown 
+	b. ls /etc/ssh/*key*: Host keys are stored
+
+3. Customizing SSH service configuration
+	a. Prohibit the root user from logging in using SSH
+		i. Open, /etc/ssh/ssshd_config
+		ii. Change default, PermitRootLogin yes
+		iii. To, PermitRootLogin no
+		iv. And restart, systemctl restart sshd
+
+	b. Prohibit password authentication using SSH
+		i. Open, /etc/ssh/ssshd_config
+		ii. Change default, PasswordAuthentication yes
+		iii. To, PasswordAuthentication no
+		iv. And restart, systemctl restart sshd
