@@ -1,0 +1,34 @@
+Killing Processes
+
+	Process control using signals
+	 	1. HUP -Hang up: Report a termination of the controlling process of a terminal. 
+				 Request process re initialization without termination
+		2. INT -Keyboard Interrupt: Causes program termination can be blocked or handled.
+					    sent by typing INTR character (ctrl-c)
+	 	3. QUIT -Keyboard Quit: Similar to SIGINT, but also produces a process dump at termination
+				        sent by typing QUIT character (ctrl-\)
+		9. KILL -Kill Unblockable: causes abrupt program termination, cannot be blocked, ignored or handled always fatal
+	  	15. TERM - Terminate: Cause program termination.unlike SIGKILL can be blocked,ignored or handled.
+	 	18. CONT-Continue: Sent to a process to resume if stopped, cannot be blocked
+	 	19. STOP - Stop unblockable: suspends the process. Cannot be blocked or handled
+		20.TSTP -Keyboard stop: can be blocked, ignored or handled.
+			Sent by typing SUSP character (ctrl-z)
+
+	Each signal has a default action usually one of the following
+		- Term: cause a program to terminate at once
+		- Core: cause a program to save a memory image and then terminate
+		- Stop: cause a program to stop executing and wait to continue
+	 ctrl-z : Suspend
+	 ctrl-c :Kill
+	 ctrl-\ :Core dump
+	 kill: signal to one process by ID
+	 killall: one or more process matching selection criteria
+	 pkill: advanced killall-to terminate all processes for one user
+
+	-Logging users out Administratively
+		- w: views users currently logged into the system 
+		- TTY and FROM -column determine users location
+		- w -f:To display  connecting system name
+		- ps tree -p: to view a process tree for the system
+	-monitoring process activity
+		-uptime - display load average values
