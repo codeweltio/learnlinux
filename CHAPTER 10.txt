@@ -1,0 +1,51 @@
+﻿CHAPTER 10. ANALYZING AND STORING LOGS
+
+1. System log Architecture
+	a. Logs stored in /var/log
+	b. syslog messages handled by two services
+		i.  system-journald
+		ii. rsyslog
+	c. System log files
+		i. /var/log/messages: most syslog messages logged here, exceptions: authentication, email processing, purely debugging related
+		ii. /var/log/secure: security, authentication and others
+		iii.  /var/log/mail log: mail server related
+		iv. /var/log/cron: periodically executed tasks
+		v. /var/log/boot.log: system startup
+
+2. Reviewing syslog files
+	a. man rsyslog.conf
+	b. syslog priorities
+	Code		Priority			Severity
+	0		emerg			system is unusable
+	1		alert			action must be taken immediately
+	2		crit			critical condition	
+	3		err			non critical error condition
+	4		warning		warning condition
+	5		notice		normal but significant event
+	6		info			informational event
+	7 		debug			debugging-level message
+
+3. Log file rotation
+	a. logrotate, keep them from filling up the file system containing /var/log
+	b. when log is rotated, renamed with extension indicating date of rotation
+		old: /var/log/messages
+		new: /var/log/messages-20141030, rotated on 30 October 2014
+	c. After 4 weeks, old log file is discarded to free space
+
+4. Analyze a syslog entry
+	a. Log entries in log files are recorder in a standard format
+		i. Time stamp when the log entry was recorded ii. Host from which log message was sent iii. Program or process that sent the log message iv. Actual message sent
+	b. Monitor a log file with tail
+		tail -f /var/log/secure
+	c. Send a syslog message with logger
+		logger -p user.notice “message”
+
+5. Maintaining accurate time
+	a. timedatectl: overview of current time related system
+	b. timedatectl list-timezones
+	c. timedatectl set-ntp true (NTP sychronise for time adjustment)
+
+6. Configuring and monitoring chronyd
+	a. systemctl restart chronyd
+	b. chronyc sources -v
+
