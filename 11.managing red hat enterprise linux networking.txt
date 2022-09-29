@@ -1,0 +1,37 @@
+managing red hat enterprise linux networking
+	ssh -remote login
+	https -secure web
+	NFS OR CIFS -file sharing
+	SMTP -electronic mail delivery
+	
+	-/sbin/ip -to show device and address information
+	 	-UP shows an active interface 
+		-the link line specifies the hardware address of the device
+		-the inet line shows the IPv4 address and prefix
+		-the broadcast address,scope and device name are also on this line
+		-the inet6 line shows IPv6 information
+	-ip -to show statistics about network performance
+	-ip route -show routing information
+	-ping - to test connectivity
+	-traceroute or tracepath -to trace the path to a remote host
+	-ss -to display socket statistics or netstat-doesnt installed as default
+		- -n : TO SHOW NUMBERS INSTEAD OF NAMES FOR INTERFCAE AND PORTS
+		- -t : show TCP sockets
+		- -u : show UDP sockets
+		- -l :listening sockets
+		- -a :both listening and established sockets
+		- -p : process using the sockets
+	-nmcli con show : display a list of all connections
+		-nmcli con show --active : show ctive connections
+	-nmcli dev status : to show device status and details
+	-nmcli con mod -to modify existing connectivity
+	-nmcli con show "<ID>" -TO SEE A LIST OF CURRENT VALUES FOR A CONNECTION
+	-nmcli con up "<ID>" -active a connection
+	-nmcli con down "<ID>" -deactivate a connection
+	-nmcli net off -disabled all managed interfaces
+	-nmcli con add ... -add a new connection
+	-hostname -display host name
+	-hostnamectl -to modify file and to view the staTUS of the sysytems host name
+	- getent hosts hostname - to test host name resolution 
+	-host "hostname" -to test DNS server connectivity
+	 
