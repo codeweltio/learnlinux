@@ -1,0 +1,24 @@
+ARCHIVING AND COPYING FILES B/W SYSTEMS
+	tar -for creating and working with backup archives
+		-tar c : crete an archive
+		-tar t :list the contents of an archive
+		-tar x : extract an archive
+		-tar cf filename 
+		-to create an compressed tar archive
+			-tar z : for gzip compression (filename.tar.gz or filename.tgz)
+			-tar j : for pzip2 compression (filename.tar.bz2)
+			-tar J : for xz compression (filename.tar.xz)
+	scp -to transfer files from aremote host to the local system or from local system to remote host
+		scp -r : to copy a whole direcory
+	sftp -when uploading or downloading files to a ssh server
+		NOTE : to establish sftp authenticating with any of the ssh server ie, sftp serverX
+	rsync -securerly copy files between local system and remote systems.
+		rsync -v : add verbosity to the output
+		rsync -a : archive mode
+			-r -synchronise whole directory
+			-l  -symbolic links
+			-p -preserve permission
+			-t -preserve time stamp
+			-g -prerve group ownership
+			-o -preserve the owner of the files
+			-D -synchronise device files
