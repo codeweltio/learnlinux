@@ -1,0 +1,22 @@
+ANALYZING AND STORING LOGS
+	- /var/log -in this directory logs are persistently stored
+	- /var/log/messages :most syslog messages are logged 
+			    :but messages related to authentication and email processing ,debugging related are not logged here
+	-/var/log/secure : the log files for security ,authentications related ,essages and errors
+	- /var/log/maillog : mail server related messages
+	- /var/log/cron : log file related to periodically executed tasks
+	- /var/log/boot.log : messages related to system startup.
+	- tail -f /path/to/file - (outputs the last 10 lines of the file specified) to monitor a log file
+	-logger -p user.notice -to send severity notice
+	
+ -reviewing systemd journal entries
+	-/run/log -systemd journal is stored
+	-journalctl -to show full system journal starting with oldest log entry 
+	-journalctl -n -shows last 10 log entries
+	-journalctl -p -takes either name or the number of the known priority levels and shows given levels and al higher level entries.
+	-journalctl -f -last 10 lines of the journal and continues to output new journal entries as they get written to the journal
+	-journalctl --since  -time parameter in the format yyyy-mm-dd hh:mm:ss
+ -maintaining accurate time
+	-timedatectl -shows an overview of the current time-related system settingsincluding current time time zone and NTP synchronization settings of the system
+	-tzselect -to identifying correct zoneinfo time zone names
+	-timedatectl set-time -to change current time and date setting.
