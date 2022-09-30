@@ -1,0 +1,86 @@
+﻿CHAPTER 11. MANAGING RED HAT ENTERPRISE LINUX NETWORKING
+
+1. Networking Concepts 
+IPv4 Networking
+	a. Application
+		i. Common protocols: SSH (Remote Login), HTTPS (Secure Web), NFS (File sharing), SMTP (electronic mail delivery)
+	b. Transport
+		i. TCP: Connection oriented communication
+		ii. UDP: Connectionless datagram protocol
+	c. Internet
+		i. Carries data from source host to destination host
+	d. Link
+	Provide connection to physical media
+		i. Wired ethernet
+		ii. Wireless WLAN
+
+2. Network interface names
+	a. Ethernet (en), WLAN (wl), WWAN (ww)
+	b. Next characters: type of adapter with o for on-board, s-hotplug slot, p-PCI geographic location Number N-represent an index, ID, or port
+
+3. Validating Network Configuration
+	a. Display IP addresses
+		i. /sbin/ip: show device and address information
+		ii. ip adde show eth0
+		iii. ip -s link show eth0
+	b. Troubleshooting rooting
+		i. ip route
+		ii. ping: command will continue to run until a ctl-c is clicked
+		iii. tracepath or traceroute (destination)
+	c. Troubleshooting ports and services
+	ss and netstat: display socket statistics  
+	Options for ss and netstat
+	a. ss -n: show members instead of names for interfaces and ports
+	b. ss -t: show TCP sockets
+	c. ss -u: show UDP sockets
+	d. ss -l: show only listening sockets
+	e. ss -a: show all sockets
+	f. ss -p: show the process using the sockets
+
+4. Configuring Networking with nmcli
+	a. Viewing network information with nmcli
+		i. nmcli con show: display list of all connections
+		ii. nmcli con show –active: list only active connections
+		iii. nmcli dev status: show device status and details
+	b. Creating network connections with nmcli
+		i.  nmcli con add con-name “default” type ethernet infame eth0
+		ii. nmcli con add help: show all types
+	c.  Modifying network interfaces with nmcli
+		i. nmcli con mod “default” connection.autoconnect no
+		ii. nmcli con mod “default” ipv4.dns 172.25.X.254: Specify a dns server
+		iii. nmcli con mod “default” +ipv4……: Add a secondary dns server
+
+5. nmcli Commands
+	a. nmcli dev status: list all devices
+	b. nmcli con show: list all connections
+	c. nmcli con up “<ID>”: Deactivate a connection
+	d. nmcli dev dis <DEV>: Bring down an interface and temporarily disable autoconnect
+	e. nmcli net off: disable all managed interfaces
+	f. nmcli con add: add new connection
+	g. nmcli con mod “<ID>”: modify a connection 
+	h. nmcli con del “<ID>”: Delete a connection
+
+6. Editing network configuration files
+Configuration option for ifcfg file
+	a. STATIC
+		i. BOOTPROT0= none
+		ii. IPADDR0= 172.25.X.10
+		iii. PREFIX0= 24
+		iv. GATEWAY0= 172.25.X.254
+		v. DEFROUTE= yes
+		vi. DNSI= 172.25.254.254
+	b. DYNAMIC
+		i. BOOTPROT0= dhcp
+	c. EITHER
+		i. DEVICE= etho
+		ii. NAME= “system eth0”
+		iii. ONBOOT= yes
+		iv. UUID= f3e8dd..
+		v. USERCTL= yes
+	After modifying, reload nmcli con reload
+	d. Configuring host names and name resolution
+		i. hostname: Display host name
+		ii. hostnamectl set-hostname name: 
+		iii. hostnamectl status
+	e. Configuring name resolution
+		i. Cat /etc/hosts: display host status
