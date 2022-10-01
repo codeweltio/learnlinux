@@ -1,0 +1,30 @@
+14.ACCESSING LINUX FILE SYSTEM
+	-Hard disks and storage devices are normally divided up into smaller chunks called "PARTITIONS"
+	-df : it will show disk space,used disk space and free disk space on all mounted regular file systems.
+	-df -h : show output size in different sizes like Kib,MiB ,gIb
+	-df -H : show output size in standard unit.
+	-du : more detailed information aboit the disk space
+
+	-MOUNTING AND UNMOUNTING FILE SYSTEMS
+		-mount : allow root user to manually mount a file system 
+		-blkid:gives an overview of existing partitions with a file system on them and the UUID of the file system,as 			well as the file system used to format the partition.
+		-unmount 
+			NOTE ; FOR UNMOUNT TO BE SUCCESSFUL,THE PROCESS NEEDS TO STOP ACCESSING THE MOUNT POINT.,FOR THIS 
+				lsof :lists all open files and the process running them in the provided directory after this 				unmount the file system.
+
+	-managing link between files
+		-ls -l : hardlink count after the permissions and before the owner of a file
+		-ln :creates new hard links to existing files.
+		-rm -f {filename} : to remove a file
+		-ln -s : creates a softlink or symbolic link
+			softlink :special file  type that points to an existing file or directory.
+	
+	-locating files on the system
+		-locate : searches a pregenerated database for filenames or file paths and returns the results instantly.
+			-locate -i name: case insensitive search
+			-locate -n {number} {name} : limits the number of rteturned search results		
+		-find : searches the file system in real time by crawling through the file system.
+			-find / -name filename : looks up files matching te given file name and returns all exact matches.
+			-find -size  {any size like k,M,G)
+
+ 
