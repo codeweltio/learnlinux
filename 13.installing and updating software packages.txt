@@ -1,0 +1,46 @@
+INSTALLING AND UPDATING SOFTWARE PACKAGES
+	Four basic task performed in red hat subscription management tools:
+		-Register: attach a system to a red hat system
+		-subscribe : Enable a system to use selected red hat products
+		-enable repositories :to provide software packages
+		-review and track : determine the number of available subscriptions
+	register a system to a red hat account : subscription-manager register
+	view available subscriptions : subscription-manager list available | less
+	to auto attach a subscription : subscription-manager attach --auto
+	to view consumed subscription : subscription-manager list --consumed
+	to unregister a system : subscription-manager unregister
+	
+	RPM software packages and yum
+		-RPM package manager provides a standard way to package software for distribution
+		-the upstream source code version - version
+		-list of reasons for each package build - changelog
+		-the version of the package build - release
+		-a collection of RPM packages and package groups - repository
+		-rpm :to install ,update ,remove and query RPM packages.
+		-yum :to list repositories,packages,and package groups (searches numerous repositories for packages and their 			dependencies so they may be installed together in efffort to alleviate dependency issues.)
+			-yum repolist
+			-yum list yum*
+			-yum list installed
+			-yum grouplist
+	managing software updates with yum
+		-yum help : display usage information
+		-yum list :display installed and available packages
+		-yum search keyword :list packages by keywords found in the name and summary feilds onluk.
+		-yum search all 'keyword'-search for packages that have keyword name
+		-yum info packagename :detailed information about package including the disk speed needed for installation
+		-yum provides {path name} :display packages that match the path name specified.
+		-yum install {packagename} : obtains and install a software package,including any dependencies.
+		-yum update {package name} :installs anew version of the software package
+			-yum update : install all relevant updates.
+		-yum remove {package name} :removes an installed softwre package including any supported packages
+		-yum history : display transaction history
+		-yum groupinstall "groupname" :install a package group
+		-yum repolist all : to view all available repositories
+		-yum localinstall PACKAGEFILE.rpm : to install package files directly.
+		
+	
+	-rpm -q -i NAME : Display information about a package
+	-rpm -q -l NAME : list all files included in a package
+	-rpm -q -c NAME : List configuration files included in a package
+	-rpm -q -d NAME : List documentation files included in a package
+
