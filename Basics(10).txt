@@ -1,0 +1,73 @@
+Basics 
+------
+   
+    MONITORING AND MANAGING LINUX PROCESSES 
+    ---------------------------------------
+
+    Process  
+    -------
+     • An existing (parent) process duplicates its own address space (fork) to create a new (child) process structure
+     • Every new process is assigned a unique process ID (PIO) 
+     • Normally, a parent process sleeps while the child process runs, setting a request (wait) to be signaled when the child completes.
+     • Zombie processes :-They're processes that have completed their execution, but their entries are not removed from the process table.
+
+    Process States
+    --------------
+
+     - Running :- 
+                 - R  :- TASK_RUNNING: The process is either executing on a CPU or waiting to run.
+
+     - Sleeping :- 
+                 - S  :- TASK_INTERRUPTIBLE: The process is waiting for some condition: as hardware request, system resource access, or signal.
+                 - D  :- TASK_UNINTERRUPTIBLE: This process is also Sleeping, but unlike S state, sleeping will not respond to delivered signals.
+                 - K  :- TASK_KILLABLE: To allow the waiting task to respond to a signal to be killed
+                 - T  :- TASK_STOPPED: The process has been Stopped (suspended), usually by being signaled by a user or another process.
+                 - T  :- TASK_TRACED: A process that is being debugged is also temporarily stopped and shares the same T state flag. 
+     - Zombie :- 
+                - Z  :- EXIT_ZOMBIE: A child process signals its parent as it exits. All resources except for the process identity (PID) are released.
+                - X  :- EXIT_DEAD: When the parent cleans up (reaps) the remaining child process structure, the process is now released completely
+
+    Listing Processes  
+    -----------------
+     - ps :- used for listing current processes.    
+        -  aux :- Displays all processes, with columns in which users will be interested and includes processes without a controlling terminal. 
+        -  lax :- Provides more technical detail ,but may display faster by avoiding the username lookup.
+        - -ef  :- Display all processes. 
+     - top :- For a repetitive update process display.    
+
+    Running Jobs In The Background 
+    ------------------------------
+    - sleep {sec} :- Delay for a specufied amount of time
+        - can be started in the background by appending an ampersand (&) 
+           eg: sleep 100 & 
+        - j :- displays information relating to jobs    
+    - jobs :- tracks jobs, per session, in a table displayed
+    - fg (%job number) :- Background jobs can reconnect to the controlling terminal by being brought to the foreground
+    • suspend request (Ctrl-z) to the process
+    - bg (%job number) :- To restart the process in the background
+ 
+    Killing Processes 
+    -----------------
+     • Users signal their current foreground process by typing a keyboard control sequence to suspend (Ctrl-z), kill (Ctrl-c), or core dump (Ctrl - \) the process.
+     •  To signal a background process
+      - kill :- command sends a signal to a process 
+       - killall :- to send a signal to one or more processes matching selection criteria
+       - pkill  :- can signal multiple processes, uses advanced selection criteria
+     • Process management signals
+        -  -9 or -SIGKILL  :- Causes abrupt program termination. Cannot be blocked, ignored, or handled; always fatal. 
+        -  -15 or -SIGTERM :- Causes program termination. can be blocked, ignored, or handled. The polite way to
+                              ask a program to terminate; allows self-cleanup.
+        -
+        -
+
+    Logging Users Out Administratively
+    ----------------------------------
+     - w :- views users currently logged into the system and their activities
+       - w -f :- Remote users display their connecting system name in the FROM column
+    • Use the TTY and FROM columns to determine the user's location
+    • Background tasks and children are in the JCPU column. Current foreground process CPU consumption is in the PCPU column.
+     -pstree :- to view a process tree for the system or a single user
+
+    Monitoring Process Activity 
+    ---------------------------
+    • top, uptime, w, and gnome-system-monitor :- display load average values. 
