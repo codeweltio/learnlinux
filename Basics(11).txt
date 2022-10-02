@@ -1,0 +1,36 @@
+Basics 
+------
+   
+    CONTROLLING SERVICES AND DAEMONS 
+    --------------------------------
+    
+    Note
+    ----
+    - Daemons are processes that wait or run in the background performing various tasks.(the names of many daemon programs end in the letter "d")
+    - systemctl :- used to manage different types of systemd objects, called units.
+        -  -t help :- A list of unit types can be displayed 
+        - status {name.type}  :- status of a service can be viewed
+
+
+      Service Status Outputs 
+      ----------------------
+      - loaded  :- Unit configuration file has been processed.
+      - active (running) :- Running with one or more continuing processes.
+      - active (exited) :- Successfully completed a one-time configuration.
+      - active (waiting) :- Running but waiting for an event.
+      - inactive :- Not running.
+      - enabled :- Will be started at boot time.
+      - disabled :- Will not be started at boot time.
+      - static  :- Can not be enabled, but may be started by an enabled unit automatically. 
+
+    Starting and stopping system daemons on a running system
+       -----------------------------------------
+     - systemctl stop {name.type} :- Stop the service on a running system
+       - start {name.type} :- Start the service on a running system
+       - restart {name.type} :- Stop, then start the service
+       - reload {name.type} :- Reload configuration file of a running service
+       - mask {name.type} :- Completely disable a service from being started, both manually and at boot.
+       - unmask {name.type} :- Make a masked service available
+       - enable {name.type} :- Configure a service to start at boot time.
+       - disable {name.type} :- Disable a service from starting at boot time. 
+       - list-dependencies {name.type} :- List units which are required and wanted by the specified unit.
