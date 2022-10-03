@@ -1,0 +1,28 @@
+Basics 
+------
+   
+    CONFIGURING AND SECURING OPENSSH SERVICE 
+    ----------------------------------------
+    
+    Secure Shell
+    ------------
+     - ssh :- for logging into remote machine and remote execution
+       - ssh remoteuser@remotehost :- Connect to a remote shell as a different user on a selected host 
+       - ssh remoteuser@remotehost hostname :- Execute a single command (hostname) on a remote host and as a remote user
+
+    SSH Host Keys
+    -------------   
+     • Host ID's are stored in ~/.ssh/known_hosts on local system
+     • Host keys are stored in /etc/ssh/ssh_host_key* on the SSH server
+
+    SSH key-based authentication 
+    ---------------------------
+     - ssh-keygen :- for key generation
+     • the private key ~/.ssh/id_rsa and the public key ~/.ssh/id_rsa.pub. are stored here
+     - ssh-add :- add private key identities to the authentication agent
+     - ssh-agent :- holds private keys used for public key authentication
+     - ssh-copy-id :- copy the key is to another system 
+
+    Customizing SSH Service Configuration 
+    -------------------------------------
+     • SSH server can be modified in the configuration file /etc/ssh/sshd_config
