@@ -1,0 +1,72 @@
+﻿CHAPTER 12. ARCHIVING AND COPYING FILES BETWEEN SYSTEMS
+
+1. Managing compressed tar Archives
+	a. tar: gather large sets of files into a single file (archive)
+	b. compressed using: gzip, bzip 2, xz
+
+2. Operate the tar command
+	a. c: create an archive
+	b. t: list the contents of archive
+	c. x: extract an archive
+	Commonly used options
+	d. f filename: file name of the archive to operate on
+	e. v: verbosity: to see which files get added to or extracted from the archive
+
+3. Archive files and directories with tar
+	a. tar cf “filename of archive to be created” “list of files and directories that should get added to the archive”
+
+4. List contents of a tar archive
+	a. tar tf “file name”
+
+5. Extract an archive created with tar
+	a. Extracted in an empty directory to ensure it does not overwrite existing file
+	b. First make new directory: mkdir /root/etcbackup
+	c. Change directory to that directory: cd /root/etcbackup
+	d. Extract: tar xf /root/etc.tar
+	e. To preserve the permission of an archived file: tar xpf /root/etc.tar
+
+6. Create a compressed tar archive
+	a. z: gzip compression (filename.tar.gz/filename.tgz)
+	b. j: bzip2 compression (filename.tar.bz2)
+	c. J: xz compression (filename.tar.xz)
+	d. tar czf /root/etcbackup.tar.gz /etc: create a gzip compressed tar archive /root/etcbackup.tar.gz of the /etc directory
+	e. tar cjf /root/logbackup.tar.bz2/var/log: create a bzip2 compressed tar archive /root/logbackup.tar.bz2 of /var/logdirectory
+
+7. Extract a compressed tar archive
+	a. mkdir /tmp/etcbackup
+	b. cd/tmp/etcbackup
+	c. tar xzf /root/etcbackup.tar.gz
+
+8. Copying files between systems securely
+Copy files to or from a remote location with scp
+	a. scp /etc/yum.conf /etc/hosts server:/home/student: copy local files on desktop /etc/yum.conf and /etc/hosts to account student on remote system server into the directory /home/student/
+	b. scp serverX: /etc/hostname /home/student/: copy file /etc/hostname from account student on the serverX machine to local directory /home/student
+	c. scp -r root@serverX: /var/log/tmp: To copy whole directory tree recursively /var/lg on serverX to /tmp/ on desktop
+
+9. Transfer files remotely with sftp
+sftp session accepts various commands, ls, cd, mkdir, pwd, rmdir
+	a. exit: exits the sftp session
+	b. sftp serverX 
+	   mkdir hostbackup
+	   cd hostbackup
+	   put /etc/hosts: Upload the local file /etc/hosts to newly created directory 
+	c. get /etc/yum.conf
+	   exit: to download remote file /etc/yum.conf from remote host
+
+10. Synchronizing files between systems securely
+	a. rsync: securely copy files from one system to another
+	b. If two files or directories are similar between two system
+	rsync: copy the differences between two
+	scp: copy everything
+	c. rsync -n: perform a dry run, simulation of what happens when the command really gets executed
+	d. rsync -v: add verbosity to the output 
+	e. rsync -a: archive mode, enables following options all in one
+		i. -r: synchronizing recursively the whole directory tree
+		ii. -l: synchronize symbolic links
+		iii. -p: preserve permissions 
+		iv. -t: preserve time stamps
+		v. -g: preserve group ownership
+		vi. -o: preserve the owner of the file
+		vii. -D: synchronize device files
+	f. rsync -H: Enables handling of hardlinks 
+ 
