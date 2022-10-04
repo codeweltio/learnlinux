@@ -1,0 +1,104 @@
+Basics 
+------
+   
+    ANALYZING AND STORING LOGS 
+    --------------------------
+    
+    System logging
+    --------------
+     • /var/log directory is where these logs are persistently stored.
+     • syslog messages are handled by two services
+         - systemd-journald :- system service that collects and stores logging data
+         -  rsyslog :- sorts the syslog messages by type and priority, and writes them to persistent files in the /var/log 
+              ( /var/log directory holds various system-specific and service-specific log files maintained by rsyslog)
+
+     system log files
+     ----------------
+     - /var/log/messages :- Most syslog messages are logged here  (except messages related to authentication and email processing ,debugging related.)    
+     - /var/log/secure :- The log file for security and authentication-related messages and errors   
+     - /var/log/maillog :- The log file with mail server-related messages. 
+     - /var/log/cron :- The log file related to periodically executed tasks. 
+     - /var/log/boot :- log Messages related to system startup . 
+
+    Reviewing Syslog Files 
+    ----------------------
+
+    syslog prioritie
+    ----------------
+    - emerg(0)  :- System is unusable
+    - alert(1)  :- Action must be taken immediately
+    - crit(2)   :- Critical condition
+    - err (3)   :- Non-critical error condition
+    - warning(4) :- Warning condition
+    - notice(5) :- Normal but significant event
+    - info (6)  :- Informational event.
+    - debug (7) :- Debugging-level message. 
+
+    Log file rotation
+    -----------------
+    • logrotate utility to keep them from filling up the file system containing /var/log/
+
+    Analyze a syslog entry
+    ----------------------
+     log entries format
+     eg. Feb 11 20:11:48 localhost sshd[1433] : Failed password for student from 0.0.0.0 port 1 ssh2 
+
+    1. The time stamp when the log entry was recorded.
+    2. The host from which the log message was sent.
+    3. The program or process that sent the log message.
+    4. The actual message sent. 
+
+    Monitor a log file with tail
+    ----------------------------
+     - tail -f /path/to/file  :- outputs the last 10 lines of the file specified and continues to output new lines as 
+                                 they get written to the monitored file. 
+
+    Send a syslog message with logger 
+     ------------------------------
+     - logger  :- to make entries into the system log
+
+    Finding events with journalctl
+    ------------------------------
+     - journalctl :- shows the full system journal, starting with the oldest log entry
+           - -n  :- shows the last 10 log entries
+           - -p  :- takes either the name or the number of the known priority levels and shows the given levels and all higher-level entries
+           - -f  :- outputs the last 10 lines of the journal and continues to output new journal entries
+           - --since and --until :- To limit the output to a specific time range ( format YYYY-MM-DD hh:mm:ss OR yesterday,today and tomorrow)
+                                      Eg.  journalctl --since today
+           - -b :- To limit the output to a specific system boot                           
+                To search for lines relevant to a particular process or event                      
+                 • _COMM :- The name of the command
+                 • _EXE  :- The path to the executable for the process 
+                 • _PIO  :- The PIO of the process
+                 • _UIO  :- The UIO of the user running the process
+                 • _SYSTEMO_UNIT :- The systemd unit that started the process  
+
+                   Eg.  journalctl _SYSTEMD_UNIT=sshd.service _PID=1182                    
+
+     Store The System Journal Permanently
+     ----------------------------------- 
+     Note 
+     ----
+     • By default, the system journals are kept in the /run/log/journal directory, which means the journals are cleared when the system reboots.
+      You can change the configuration settings of the systemd-journald service in the /etc/systemd/journald.conf file to make the journals persist across reboot.
+        • persistent :- stores journals in the /var/log/journal directory which persists across reboots.
+        • volatile :- stores journals in the volatile /run/log/journal directory.
+        • auto :- rsyslog determines whether to use persistent or volatile storage.
+
+    Set local clocks and time zone
+    ------------------------------
+     - timedatectl :- shows an overview of the current time-related system settings, including current time, time zone, and NTP synchronization settings    
+          - set-time HH:MM:SS  :- To change the current time
+                     YYYY-MM-DD  :- To change the current date
+          - list-timezones :- To list all available time zones
+          - set-timezone (time_zone) :- To change the currently used time zone
+          - set-ntp {yes(true) or no(false)} :- NTP service can be enabled and disabled
+
+    Configuring and Monitoring chronyd 
+    ---------------------------------- 
+     - To reconfigure the chronyd server to synchronize with new server instead of the default servers configured in the /etc/chrony.conf ,
+        remove the other server entries and replace them with new. Then restart the service using systemctl 
+        - iburst :- for clock synchronization
+        eg. :- server classroom.example.com iburst 
+     - chronyc sources :-  to verify the NTP server was used to synchronize the system clock
+                  - -v  :- for more verbose output with additional explanations about the output
