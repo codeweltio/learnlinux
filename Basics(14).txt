@@ -1,0 +1,100 @@
+Basics 
+------
+   
+    MANAGING LINUX NETWORKING  
+    -------------------------
+    
+     IPv4 networking
+     ---------------
+      • TCP/IP standards follow a four-layer network model
+       1. Application
+       2. Transport
+       3. Internet
+       4. Link
+
+     IPv4 addresses 
+     --------------
+     An IPv4 address is a 32-bit number, normally expressed in decimal as four octets ranging in value
+     from 0 to 255, separated by dots. The address is divided into two parts: the network part and the host part.
+
+     Network masks are expressed in two forms. The older syntax for a netmask which uses 24 bits for the network part would
+     read 255.255.255.0 . A newer syntax, called CIDR notation, would specify a network prefix of /24 .
+
+     IPv4 routing
+     ------------
+     The routing table entries will list a destination network, which interface to send the t raffic out,
+     and the IP address of a ny intermediate router that is required to relay the message to its final
+     destination. The routing table entry which matches the destination of the network t raffic is used
+     to route it.
+
+     Network interface names
+     ----------------------
+     • Network interfaces in Linux are shown as eth0, eth1,...
+     • Ethernet interfaces - en, WLAN - wl, and WWAN - ww 
+     • o for on-board, s for hotplug slot, and p for PCI geographic location represents the type of adapter 
+
+    Displaying IP addresses 
+    -----------------------
+     - ip :- used to show statistics a bout network performance 
+
+    Troubleshooting routing
+    -----------------------
+     - ping :- used to test connectivity
+     - traceroute or tracepath :- To trace the path to a remote host
+
+     Troubleshooting ports and services
+     ----------------------------------
+     - ss or netstat :- used to display socket statistics 
+        - -n :- Shows numbers instead of names for interfaces and ports.
+        - -t :- Show TCP sockets.
+        - -u :- Show UDP sockets.
+        - -I :- only listening sockets.
+        - -a :- all (listening and established) sockets.
+        - -p :- Show the process using the sockets.
+
+    Configuring Networking
+    ----------------------
+    - nmcli :- used for controlling NetworkManager and reporting network status
+       - con show :- To display a list of all connections
+           - --active :- To list only the active connections 
+                                                                    ( Setting and property names are defined in the nm-settings man page)
+       - dev status :- to show device status and details 
+       - con add .. :- Add a new connection
+       - con mod "<ID>" .. :- Modify a connection   
+       - con del "<ID>" :- Delete a connection    
+       - con up "<ID>"  :- Activate a connection
+       - con down "<ID>" :- Deactivate a connection. (The connection will restart if autoconnect is yes)
+       - dev dis <DEV>  :- Bring down an interface and temporarily disable autoconnect   
+       - net off  :- Disable all managed interfaces  
+                                                                     (nm-connection-editor :- to use graphical interface)       
+
+    Modifying network configuration 
+    -------------------------------
+     • ifcfg File location  /etc/sysconfig/network-scripts/ifcfg - <name> (<name> refers to the name of the device or connection that the configuration file controls)
+
+      Configuration Options for ifcfg File   
+         ---------------------------
+       Static :-
+                - BOOTPROTO=none
+                - IPADDR0=172.25.X.10
+                - PREFIX0=24
+                - GATEWAY0=172.25.X.254
+                - DEFROUTE=yes
+                - DNS1=172.25.254.254
+       Dynamic :-
+                 - BOOTPROTO=dhcp
+       Either :-
+                - DEVICE=eth0
+                - NAME= " System eth0 "
+                - ONBOOT=yes 
+                - UUID=f3e8dd32-3 ...  
+                - USERCTL=yes
+        - run "nmcli con reload" to make networkManager read the configuration changes   
+
+    Configuring Host Names and Name Resolution
+    ------------------------------------------
+     -  hostname :- displays host name 
+     -  hostnamectl :- used to modify this file 
+             - status :- used to view the status of host name
+     - getent hosts hostname :-  used to test host name resolution with the /etc/hosts file
+     - host HOSTNAME :- used to test DNS server connectivity        
