@@ -1,0 +1,93 @@
+﻿CHAPTER 13. INSTALLING AND UPDATING SOFTWARE PACKAGES
+
+1. Attaching systems to subscriptions for software updates
+Four basic tasks performed with Red-Hat subscription management tools
+	a. Register
+	b. Subscribe
+	c. Enable repositories
+	d. Review and track
+
+2. Automating registrations and subscriptions
+	a. subscription-manager register –username=your username
+	b. –password=your password: Register a system to a RedHat account
+	c. subscription-manager list –available | less: view: available subscription
+	d. subscription-manager attach –auto: auto attach a subscription
+	e. subscription-manager list –consumed: view consumed subscriptions
+	f. subscription -manager unregister: Unregister a system
+
+3. Entitlement certificates
+	a. /etc/pki/product: certificates, products installed on system
+	b. /etc/pki/consumer: certificates, account to which registered
+	c. /etc/pki/entitlement: certificates, subscriptions attached to the system
+
+4. RPM Software packages and Yum
+   RPM package files are named
+	a. Name-version-release.architecture
+
+5. The Yum package manager
+	a.yum used to list repositories, packages and package groups
+	b. yum repolist
+	c. yum list yum*
+	d. yum list installed
+	e. yum group list
+
+6. Managing software updates with yum
+	a. Finding software with yum
+		i. yum help: display usage info
+		ii. yum list: display installed and available packages
+		e.g., yum list ‘http*’
+      	iii. yum search KEYWORD: Lists packages by keywords 
+            e.g., yum search all ‘web server’
+      	iv. yum info PACKAGE NAME: Detailed info about a package
+		e.g., yum info httpd
+      	v. yum provides PATHNAME: Display packages that match the pathname
+		e.g., yum provides /var/www/html
+
+	b. Installing and removing software with yum
+		i. yum install PACKAGENAME: obtain and install a software package
+		ii. yum update PACKAGENAME: obtain and install new version of software package
+		iii. yum remove PACKAGENAME: remove an installed software package
+		yum remove httpd
+
+	c. Installing and removing groups of software with yum
+	yum group info
+	Marker			Meaning
+	=			Package is installed, installed as part of group
+	+			Package is not installed, will be if group is installed or updated
+	-			Package is not installed, will not be if group is installed or updated
+	No marker		Package is installed, was not installed through group
+
+	d. Viewing transaction history
+		i. Install and remove transaction logged in:  /var/log/yum.log
+		ii. tail -5 /var/log/yum.log
+		iii. yum history: summary of install and remove transaction
+		iv. yum history undo 6: transaction can be reversed to 6
+
+	e. Enabling yum software repositories
+		i. yum repolist all
+		ii. yum -config-manager –enable ‘file’
+
+7. Examining RPM package files
+General form: 	rpm -q [select-options] [query-option]
+			rpm –query [select-options] [query-option]
+      		rpm -q -a: all installed packages
+	a. RPM queries: Select options
+		a. rpm PACKAGENAME: currently installed PACKAGENAME
+		rpm -q yum
+		b. rpm -q -f FILENAME: what package provides FILENAME
+	b. RPM queries: Info about content of packages
+		a. rpm -q: list package name and version
+		b. rpm -q -i: package info
+		c. rpm -q -l: list of files installed by specified paths
+		d. rpm -q -c: list configuration files
+		e. rpm -q -d: list document files
+		f. rpm -q –scripts: list shell scripts
+
+8. Using yum to install local package files
+		a. yum local install PACKAGEFILE.rpm  
+
+
+
+
+
+
