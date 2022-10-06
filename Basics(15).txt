@@ -1,0 +1,62 @@
+Basics 
+------
+   
+    ARCHIVING AND COPYING FILES BETWEEN SYSTEMS  
+    -------------------------------------------
+
+     Operate the tar command
+     -----------------------
+     - tar :- for creating and working with backup archives
+        - -c :- create an archive
+        - -t :- list the contents of an archive
+        - -x :- extract an archive
+        - -f file name :- this option needs to be followed by the file name of the archive to use/create
+        - -p Preserve the permissions of files and directories when extracting an archive, without subtracting the umask. 
+        - -v :- to see which files get added to or extracted from the archive
+        - -tf :- To list the content of an archive
+        - -xf :- To extract a tar.gz file 
+                                        (-v :- print the names of the files being extracted on the terminal)
+        - z :- To create gzip compression (filename.tar.gz or filename.tgz)
+        - j :-  bzip2 compression (filename.tar.bz2)
+        - J :-  xz compression (filename.tar.xz)    
+        - xz :- To extract gzip compression
+        - xj :- To extract bzip2 compression
+        - xJ :- To extract xz compression
+
+    Copy files to or from a remote location with scp
+    ------------------------------------------------
+     - scp :- transfers files from a remote host to the local system or from the local system to a remote host
+              (Remote file system locations are always specified in the format [user@]host(ip):/path for either
+                the source or target location of the files to be transferred)
+        - -r :- To copy a whole directory tree recursively     
+
+    Transfer files remotely with sftp 
+    ---------------------------------
+    - sftp :- interactive tool is preferred when uploading or downloading files to a SSH server  
+     under sftp session                           (sftp session accepts various commands that work the same way on the remote file system
+                                                   as they do in the local file system, such as ls, cd, mkdir, rmdir, and pwd)
+      - put :- for uploading files                   
+      - get :- for downloading files
+        - mget :- to download multiple files 
+        (exit command exits the sftp session)
+
+    Synchronize files and folders with rsync
+    ----------------------------------------
+     - rsync :- to securely copy files from one system to another
+        - -n :- to perform a dry run         ( It is recommended to perform a dry run of any rsync operation to ensure no important files 
+                                                 get overwritten or deleted)
+        - -v :- adds verbos ity to the output as the synchronization proceeds   
+        - -a :- stands for "archive mode"
+                    Enables the following options all in one 
+                        ----------------------------
+                 -r :- synchronize recursively the whole directory tree
+                 -1 :- synchronize symbolic links
+                 -p :- preserve permissions
+                 -t :- preserve time stamps
+                 -g :- preserve group ownership
+                 -o :- preserve the owner of the files
+                 -D :- synchronize device files                                           
+        - -H :- enables the handling of hardlinks    
+
+          (To enable the synchronization of ACLs{Access control list}, the -A option is required in addition to the -a option, while to synchronize 
+           the SELinux{Security-Enhanced Linux} contexts from the source files to the target files, the -X option is to be added)    
