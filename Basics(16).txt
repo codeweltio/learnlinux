@@ -1,0 +1,105 @@
+Basics 
+------
+   
+    INSTALLING AND UPDATING SOFTWARE PACKAGES   
+    -----------------------------------------
+
+     Red Hat Subscription Management
+     -------------------------------
+     There are four basic tasks performed with Red Hat Subscription Management tools:
+      1. Register a system to a ssociate that system to a Red Hat account.
+      2. Subscribe a system to entitle it to updates for selected Red Hat products
+      3. Enable repositories to provide software packages
+      4. Review and track entitlements which are available or consumed
+
+    Automating registrations and subscriptions 
+    ------------------------------------------
+    - subscription-manager register --username=yourusername --password=yourpassword :- to register a system to Red Hat account
+        - list --available | less :- View available subscriptions
+        - attach --auto :- Auto-attach a subscription
+        - list --consumed :- View consumed subscriptions
+        - unregister :- to unregister a system
+
+    Entitlement certificates
+    ------------------------
+     · Once registered, the entitlement certificates are stored in /etc/pki and its subdirectories
+     · /etc/pki/product :- contains certificates which indicate Red Hat products installed on the system.
+     · /etc/pki/consumer :- contains certificates which indicate the Red Hat account to which the system is registered.
+     · /etc/pki/entitlement :- contains certificates which indicate which subscriptions are attached to the system.
+
+    Software packages and RPM 
+    -------------------------
+     · RPM package files are named using a combination of the package name-version-release.architecture
+            eg. :- httpd-tools-2.4.6-7.el7.x86_64.rpm 
+
+    The yum package manager
+    -----------------------
+     - yum :- used to list repositories, packages, and package groups
+     - rpm :- to install, update, remove, and query RPM packages
+
+    Finding software with yum
+    -------------------------
+     - yum help :- will display usage information.
+       - list :- to displays installed and available packages.
+       - search <KEYWORD> :- lists packages by keywords found in the name and summary fields only
+                                 (To search for packages that have "web server" in their name, summary, and description fields, use search all)
+       - info <PACKAGENAME> :- gives detailed information about a package, including the disk space needed for installation.  
+       - provides <PATHNAME> displays packages that match the pathname specified     
+                            
+    Installing and removing software with yum
+    ----------------------------------------- 
+     - yum install <PACKAGENAME> :- obtains and installs a software package, including any dependencies   
+        - update <PACKAGENAME> :- obtains and installs a newer version of the software package, including any dependencies
+        - remove <PACKAGENAME> :- removes an installed software package, including any supported packages
+     -yum localinstall PACKAGEFILE.rpm : to install package files locally
+
+    Installing and removing groups of software with yum 
+    ---------------------------------------------------
+     - yum group list :- will show the names of installed and available groups
+         - group list hidden :-  hidden groups can also be listed                 (If the "ids" option is added, the group ID will also be shown)
+         - group info :- Information about a group is displayed 
+         - group install :- will install a group which will install its mandatory and default packages and the packages they depend on
+         - group mark install <GROUPNAME> :- to mark a group as installed and any missing packages and their dependencies will be installed on the next update. 
+
+         Marker 
+         ------
+           =        :- Package is installed, was installed as part of the group
+           +        :- Package isn't installed, will be if the group is installed or updated
+           -        :- Package isn't installed, will not be if the group is installed or updated
+         no marker  :- Package is installed, but was not installed through the group. 
+
+    Viewing transaction history
+    ---------------------------
+     • All install and remove transactions are logged in /var/log/yum.log
+     - yum history :- A summary of install and remove transactions can be viewed  
+         - history undo :- transaction can be reversed 
+
+    Enabling yum Software Repositories
+    ----------------------------------
+     - yum repolist all :- To view all available repositories     
+     - yum-config-manager --enable or --disable :- to enable and disable repositories
+                                                                                      (Repository configuration files must end in .repo)
+
+    Examining RPM Package Files 
+    ---------------------------
+      General form of a query:
+       - rpm -q [select-options] [query-options] :- Query package
+            - -q -a :- to view all installed packages 
+            - -q PACKAGENAME :- currently installed PACKAGENAME
+            - -q -p PACKAGEFILE.rpm :- view package file named PACKAGEFILE.rpm
+            - -q -f FILENAME :- what package provides FILENAME
+            - -q :- lists the package's name and version
+            - -q -i :- package information
+            - -q -e :- Remove package
+            - -q -l :- list of files installed by the specified package
+            - -q -c :- list just the configuration files
+            - -q -d :- list just the documentation files
+            - -q --scripts :- list shell scripts that may run before or after the package is installed or removed 
+            - -q --changelog :- list change information for the package
+                                                                                        (- man wget)
+      - rpm -ivh PACKAGEFILE.rpm  :- can also be used to install package files
+
+    Extracting files from RPM packages
+    ----------------------------------
+    - cpio :- copy file to and from archives
+    - rpm2cpio :- Extract cpio archive from RPM package.
