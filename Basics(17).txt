@@ -1,0 +1,57 @@
+Basics 
+------
+   
+    ACCESSING LINUX FILE SYSTEMS   
+    ----------------------------
+    
+   Identifying File Systems and Devices 
+   ------------------------------------
+
+
+
+     Examining file systems 
+     ----------------------
+     - df :- To get an overview about the file system mount points and the amount of free space available
+       - -h or -H :- To improve readability of the output sizes ,there are two different human-readable options (KiB or KB)
+     - du :- For more detailed information about the space used by a certain directory tree
+
+     Mounting and Unmounting File Systems
+     ------------------------------------
+     - mount :- allows the root user to manually mount a file system.
+     - blkid :- gives an overview of existing partitions with a file system on them and the UUID of the file system, as well
+                 as the file system used to format the partition
+     - umount :- To unmount a file system
+     - lsof :- lists all open files and the process accessing them in the provided directory
+                                                                      (The mount point for the removable medium is /run/media/<user>/<label>) 
+
+    Managing links between files 
+    ----------------------------
+     - ls -l :- to shows the hard link count after the permissions and before the owner of a file  
+     - ln  :- to creates new hard links to existing files
+       - -s :- to creates a soft link
+
+    Locating files by name with locate 
+    ----------------------------------
+     - locate :- used to find the files by name
+        - -i :- to performs a case-insensitive search
+        - -n :- limits the number of returned search results 
+
+    Searching for files with find 
+    -----------------------------
+     - find :- performs a real-time search in the local file systems to find files that match the criteria of the command-line arguments 
+                                          ( To search the entire system, provide a starting directory of / )
+        - -name :- to looks up files matching the given file name and returns all exact matches     
+        - -user :- searching by owner name
+        - -group :- search by group name 
+        - -uid and -gid :- search by ID 
+        - -perm :- used to look for files with a particular set of permissions
+        - -size :- to look up files that match a size specified 
+        - -mmin <time> :- searches for all files that had their content changed at exactly the given time in the past
+        - -type :- limits the search scope to a given file type ,
+                    • f :- for regular file
+                    • d :- for directory
+                    • 1 :- for soft link
+                    • b :- for block device
+        - -links :- followed by a number looks for all files that have a certain hard link count. 
+                        (The number can be preceded by "+" modifier to look for files with a count higher than the given hard link count.
+                        If the number is preceded with "-", the search is limited to all files with a hard link count that is less than the given number)            
