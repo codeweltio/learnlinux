@@ -35,7 +35,7 @@ Basics
 
     Command Substitution 
     --------------------
-    It allows the output of a command to replace the command itself.
+    It allows the output of a command to replace the command itself
     Eg:- ~$ echo Today is `date +%A`
           Today is Friday
           or
