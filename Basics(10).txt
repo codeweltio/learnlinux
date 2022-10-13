@@ -58,7 +58,7 @@ Basics
         -  -15 or -SIGTERM :- Causes program termination. can be blocked, ignored, or handled. The polite way to
                               ask a program to terminate; allows self-cleanup.
         -
-        -
+        
 
     Logging Users Out Administratively
     ----------------------------------
