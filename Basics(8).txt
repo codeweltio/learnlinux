@@ -47,7 +47,6 @@ Basics
 
        - groupdel :- command will remove a group.          
 
-
        - usermod -g groupname :- Change a user's primary group
        -  usermod -aG groupname username :- Add a user to a supplementary group 
                                            (Without -a , the user would be removed from all other supplementary groups)
