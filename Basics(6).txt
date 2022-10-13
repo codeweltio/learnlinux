@@ -45,7 +45,7 @@ Basics
        - ctrl+v :- for block selection
        (same keystroke used to enter visual mode is used to exit)
      - :  :- keystroke begins extended command mode for tasks like writing the file to save it and quitting the Vim editor.    
-     - u  :- to undo mistaken edits on the current line.
+     - u  :- to undo mistaken edits on the current line
      - x  :- to delete a selection of text
      - dd :- delete line
      - :w :- to write (save) the file and remain in command mode for more editing.
