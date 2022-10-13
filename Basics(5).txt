@@ -56,4 +56,4 @@ Basics
    4.Using redhat-support-tool
    --------------------------- 
    -(To search Knowledgebase) & (To manage support cases)
-    redhat-support-tool :- It's text-based for use from any terminal or SSH connection.
+    redhat-support-tool :- It's text-based for use from any terminal or SSH connection
