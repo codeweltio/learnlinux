@@ -57,7 +57,7 @@ Basics
     -----------------------------------------------
     - chown :- Change file owner and group   
        - -R :- to recursively change the ownership of an entire directory tree. 
-       - :group :- used to change group ownership of a file .
+       - :group :- used to change group ownership of a file.
        - owner:group :- used to change both owner and group at the same time.
 
     Managing Default Permissions and File Access
