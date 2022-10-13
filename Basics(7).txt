@@ -29,7 +29,7 @@ Basics
 
    Group  
    -----
-   Groups have a name and a number (GID). Local groups are defined in /etc/group .
+   Groups have a name and a number (GID). Local groups are defined in /etc/group 
    Groups can be used to grant access to files to a set of users.
    
      1.Primary Groups :- • Every user has exactly one primary group.
