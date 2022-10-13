@@ -24,7 +24,7 @@ Basics
             It has multiple options
             -l (long listing format)
             -a (all files, includes hidden files)
-            -R (recursive, to include the contents of all subdirectories).
+            -R (recursive, to include the contents of all subdirectories)
                                                                                                                                                                             
     *The two special directories refer to the current directory (.) and the parent directory ( .. )
 
