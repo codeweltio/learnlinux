@@ -2,7 +2,7 @@ Basics(D2)
 ------
 
         Linux File System Hierarchy
-       -----------------------------
+       ----------------------------
 
 Note
  ----
@@ -43,4 +43,3 @@ Note
  /boot  -: Files needed in order to start the boot process.  
 
  /dev   -: Contains special device files which are used by the system to access hardware.   
-
