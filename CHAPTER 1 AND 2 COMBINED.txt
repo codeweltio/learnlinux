@@ -1,0 +1,60 @@
+﻿CHAPTER 1 AND 2 COMBINED
+
+• date: display current date and time	
+• date +%R: display current time
+• date +%x: display current date
+• date +%A: display current day
+• passwd: change a user’s password
+• file: scans the beginning of file content and display what type it is
+• file /etc/passwd: show type of file (ASCII text)
+• file /bin/passwd: type
+• file /home: directory
+• head: display beginning of the file (default 10 lines)
+• head /etc/passwd: show 10 lines of this file
+• tail: display end of the file
+• tail -n 3 /etc/passwd: display last 3 lines
+• wc: counts lines, words, characters
+• wc /etc/passwd: counts lines, words, characters
+• wc -l /etc/passwd: counts lines
+• wc -c /etc/group /etc/hosts: counts character in both files (separate and total)
+• pas <Tab><Tab>: all commands that begin with that character type
+• pass <Tab>: completes the command
+• useradd --<Tab><Tab>: completes the option without a lot of typing
+• history: list of previously executed commands
+• !number: expands command matching that number
+• !string: most recent command that begins with the string specified
+• SHORT KEYS
+	o Ctrl+a: jump to the beginning of command line
+	o Ctrl+e: jump to the end of the command line
+	o Ctrl+u: clear from the cursor to the beginning of the command line
+	o Ctrl+k: clear from the cursor to the end of the command line
+	o Ctrl+ left arrow: jump to the beginning of the previous word
+	o Ctrl+right arrow: jump to the beginning of the next word 
+	o Ctrl+r: search the history list of commands for pattern
+	o Exit or Ctrl+d: close the shell
+
+• pwd: displays full path name of current location
+• ls: lists directory contents
+• cd: change directories
+• touch: create empty files
+• ls -l: long listing format
+• ls -a: all files including hidden files
+• ls -R: include the contents of all sub directories
+• cd -: changes directory to where the user was previous to the current directory
+• cd..: move up one level to the parent directory
+• mkdir: create one or more directories
+• mkdir -p: create missing parent directory
+• cp: copy one or more files
+• mv: renames file in same directory or relocate files to a new directory
+• rm: remove files
+• rm -r: remove directories
+• rmdir: delete empty directories
+• rm -i: promt for each deletion
+• rm -f: force deletion
+• touch: create files
+• ls a*: list file names starting with a
+• ls*a*: list file names containing a
+• ls[ac]*: files starting with a and c
+• ls ????: file name containing only four letters
+• echo file{1,2,3}.txt: file1.txt file2.txt, file3.txt
+• echo Today is `date +%A`: Today is Friday
