@@ -1,0 +1,25 @@
+		TASK 01 
+
+1.Create a user with name” student”
+	- sudo -i
+	- useradd student
+
+2. Create a group with name “school”, make sure “student” user is a part of school 
+	- groupadd school
+	- usermod -aG school student
+
+3. Create a directory under /opt with name “tasks”, make sure student able to make contents inside those files and folders
+	- cd /opt/
+	- mkdir tasks
+	- chown student tasks
+
+4. Create new user with name “teacher”, make sure that user “teacher” can only read contents inside “/opt/tasks” folder
+	- useradd teacher
+	- usermod -aG school teacher
+	- chgrp school tasks
+	- chmod go-wx tasks/
+
+5. Create a folder under /opt with name “permissions”, make sure only “teacher” able to write contents to “permissions”
+	- mkdir permissions
+	- chown teacher permissions
+	- chmod go-wx permissions/
