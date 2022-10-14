@@ -1,0 +1,24 @@
+Task(1)
+------
+   
+   • Create a user with name ”student”
+     -  su - 
+     -  useradd student
+
+   • Create a group with name “school” & make sure “student” user is a part of school 
+     -  groupadd school
+     -  usermod -G school student
+
+   • Create a directory under /opt with name “tasks” & make sure student able to make contents inside those files and folders
+     -  mkdir /opt/tasks/
+     -  cd /opt
+     -  chown student /tasks
+
+   • Create new user with name “teacher” & make sure that user “teacher” can only read contents inside “/opt/tasks” folder
+     -  useradd teacher
+     -  chmod 754 tasks
+         
+   • Create a folder under /opt with name “permissions” & make sure only “teacher” able to write contents to “permissions”
+     -  mkdir permissions
+     -  chown teacher permissions
+     -  chmod 700 permissions
