@@ -1,0 +1,65 @@
+﻿UNDERSTANDING TCP/IP ADDRESSING AND SUBNETTING BASICS
+
+• To configure TCP/IP Protocol on windows, it requires 
+	o An IP address
+	o A subnet mask
+	o A default gateway
+
+• IP Address: Ability to connect together networks of different size and systems of different types
+
+• Subnet mask: used to divide an IP address into two parts
+	o One part: identifies host (computer)
+	o Other part: network to which it belongs
+
+• IP Address: Networks and Hosts
+	o IP Address: 32-bit number, uniquely identifies host, expressed in dotted decimal format (192.168.123.132) and its binary notation (110000000101000111101110000100)
+	o For IP Address 192.168.123.132
+• Network address: 192.168.123 or 192.168.123.0
+• Host address: 132 or 0.0.0.132
+
+	o Subnet mask: to determine whether the host is on local subnet or on a remote network
+		• It is 32-bit number
+		• Default subnet 255.255.255.0
+	o IP Address (192.168.123.0): 11000000.10101000.01111011.10001100
+	o Subnet mask (255.255.255.0): 11111111.11111111.11111111.00000000 
+	First three set is network address and last set is host address
+
+	o Network class
+	IP addresses are divided into classes (A, B & C)
+	D & E exists but are not used by end users
+		• Class A: 
+			• Default subnet mask of 255.0.0.0
+			• 0-127, first octet
+			• 10.52.36.11: class A address, 1<10<126
+		• Class B
+			• Default subnet mask of 255.255.0.0
+			• 128-191, first octet
+			• 172.16.52.63: class B address, 128<172<191
+		• Class C
+			• Default subnet mask: 255.255.255.0
+			• 192-223, first octet
+			• 192.168.123.132: class C address, 192=192<223
+
+	o Subnetting
+	Binary address with host portion of all ones and all zeros are invalid
+
+	o Default gateways
+		• TCP/IP computer communicate with host through a device called router
+		• When host attempt to communicate with another device using TCP/IP, performs comparison process
+		• Define subnet mask and destination IP address v/s subnet mask and its own IP address
+		• Result: Check if it is a local host or a remote host
+		• If local host, send packet on the local subnet
+		• If remote host, default gateway defined in TCP/IP properties
+		Responsibility of router to forward the packet to the correct subnet
+
+
+ADDRESS RESOLUTION PROTOCOL
+	• ARP is a procedure for tracking an IP address back to a physical machine in a LAN
+	• This physical machine also has a unique address known as MAC address (Media Access Control)
+	• ARP works between layers 2 and 3 of OSI model 
+		o Network layer with IP address 
+		o Data link layer with MAC address
+	• ARP’s job is to translate 32-bit address into 48-bit address and vice versa
+	• Transition necessary as IP address are 32-bit and MAC address are 48-bit in IPv4
+	• Mapping: packet or unit of data arrives at a gateway to a host machine, packet prompts ARP program to match IP with MAC address
+	• Host searches its ARP cache for pre existing translation for that pocket, if doesn’t exists, performs ARP process 
