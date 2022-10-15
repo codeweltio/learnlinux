@@ -17,9 +17,9 @@
 	- useradd teacher
 	- usermod -aG school teacher
 	- chgrp school tasks
-	- chmod go-wx tasks/
+	- chmod u+r tasks/
 
 5. Create a folder under /opt with name “permissions”, make sure only “teacher” able to write contents to “permissions”
 	- mkdir permissions
 	- chown teacher permissions
-	- chmod go-wx permissions/
+	- chmod u+r permissions/
