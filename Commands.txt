@@ -1,0 +1,53 @@
+COMMANDS (Chapter 1 & 2)
+--------
+   
+   - Ctrl+Alt+Fl  :- to return to the first virtual console and the graphical desktop
+   - Ctrl+Alt+F(2-6) :- to access a text login prompt on a virtual console 
+   - Ctrl+D :- terminates the current shell session
+   - date  :- to print or set the system date and time  
+     - date +%R :- display current time
+     - date +%x :- display current date
+     - date +%A :- display current day
+   - passwd :- change a user’s password
+   - file :- displays what type it is
+     - head :- display the beginning of a file
+     - tail :- display end of a file 
+        -n option that allows a different number of lines to be specified
+   - wc :- to count lines(-l), words(-w) and characters(-c) in a file
+   - !string  :- to execute the most recent command that begins with the string specified
+   - Esc + :-  to reuse the argument from the previous command
+   -  line-editing shortcuts
+         Ctrl+a  :- Jump to the beginning of the command line
+         Ctrl+e  :- Jump to the end of the command line
+         Ctrl+u  :- Clear from the cursor to the beginning of the command line
+         Ctrl+k  :- Clear from the cursor to the end of the command line
+         Ctrl+Left  :- Arrow Jump to the beginning of the previous word on the command line
+         Ctrl+Right :- Arrow Jump to the beg inning of the next word on the command line
+         Ctrl+r  :- Search the history list of commands for a pattern
+   - pwd :- displays the full path name of the current location  
+   - echo :- to display a line of text in terminal 
+   - more :- a filter for paging through text one screenful at a time 
+      - less :- displays the contents of a file
+   - cd :- to change directories
+   - ls :- list directory contents
+     -l :- long listing format
+     -a :- To show all files
+     -R :- (recursive) to include the contents of all subdirectories 
+     - a* :- to list file name starting with a
+     - *a* :- list file name containing a
+     - [ac]* :-  files starting with a and c
+     ls ????: file name containing only four letters 
+   - cd <d.name> :- to change directory 
+     - cd :- change to current user home directory
+     - cd .. :- move to the parent directory
+     - cd - :- changes directory to the directory where the user was previous to the current directory
+   - mkdir :- creates one or more directories
+        -p :- creates missing parent directories for the requested destination 
+   - cp :- copies one or more files 
+        (Copying non-empty directories, with contents, requires the -r recursive option)  
+   - mv :- renames files in the same directory, or relocates files to a new directory  
+   - rm :- deletes files
+      -r :- for deleting a directory 
+      -i :- will interactively prompt for each deletion
+      -f :- will force the deletion without prompting the user
+   - rmdir :- deletes directories only if empty  
