@@ -1,0 +1,37 @@
+﻿CHAPTER 3 & 4 COMBINED
+
+• man: display manual page for specific commands
+• man -k keyword: display list of keyword matching man page topics
+• man 1 gedit: view gedit (1) man page
+• gedit filename” edit specific line from command line
+• pinfo: same as info or man commands with minor differences
+• less vim-common-*/README.txt
+• su: switch to root
+• man man: manual of man page
+• man -t passwd > passwd.ps: print content to file name passwd.ps
+• file passwd.ps: shows type of file
+• less passwd.ps: read passwd.ps file
+• man evince: evince doc viewer
+• lp: print files
+• lp passwd.ps -P 2-3
+• date > /tmp/saved-timestamp: save timestamp
+• tail -n 100 /var/log/dmsg > /tmp/last100mg: copy last 100 lines from a log file to another file
+• cat file1 file2 file3 file4 > /tmp/fourinone: concatenate four files into one
+• ls -a > /tmp/myfile: list home directory hidden and regular file names into a file
+• echo “new info” >> /tmp/many info
+• diff previous file current filr >> /tmp/change file: append output to an existing file
+• file /etc -name passwd 2 > /tmp/errors: redirect errors to a file while viewing normal command output on the terminal (normal users are denied access to system directories
+• ls -l /usr/bin | less: paginate a commands long output
+• ls | wc -l > /tmp/howmany
+• vim filename: opens a file
+o i: insert mode, enter text, esc to command mode
+o u: undo mistaken edits on current line
+o x: delete a selection of text
+o w: write (save) file and remain in command mode
+o wq: write the file and quit vim
+o q!: quit vim and discard all file changes since last write
+o v: visual mode
+o y(yank): copy the selection
+o p(paste): paste the selection
+• gedit: opens text editor
+ 
