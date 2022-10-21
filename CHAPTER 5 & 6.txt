@@ -1,0 +1,46 @@
+﻿CHAPTER 5 & 6 COMBINED
+
+• id: show info about the current login user
+• ls -l: third column shows the user associated with file or directory
+• ps au: view process information (a: view all process with a terminal, u: view user associated with a process
+• su -: switch to root
+• su – username: switch to that username
+• sudo: run command as root
+• sudo command -L username: run command as that user
+• useradd prince: add the new user named prince
+• tail -2 /etc/passwd: to confirm if user has been added
+• groupadd groupname: add new group
+• sudo groupmod -n newname oldname: specify new name to old group
+• sudo groupmod -g 6000 ateam: specify new GID
+• sudo groupdel groupname: remove group
+• sudo usermod -g groupname username: change user’s primary group
+• sudo usermod -aG groupname username: add user to supplementary group
+• chage -d 0 username: force password to update on next login
+• chage -l username: list username’s current settings
+• chage -E YYYY-MM-DD: expire account on specific date
+• date -d “+45days”: calculate date in future
+• sudo usermod -L elvis: lock elvis account (-L)
+• sudo usermod -U elvis: unlock elvis
+• sudo chage -E 2014-08-02 romeo: set accounts expirey to the specific date
+
+• Permissions: read (r), write (w), execute (x)
+• ls -l filename: shows permission of file and ownership
+• ls -ld /home: show listing of directory
+• chmod whowhatwhich file/directory
+	o who (user, group, other, all) u,g,o,a
+	o what (add, remove, set exactly) +, -, =
+	o which (read, write, executable) r,w,x
+• chmod ### file/directory
+	o ###: user, group, other
+	o #: sum of r, w, x
+	o r=4, w=2, x=1
+• chown student foofile: grant ownership of file foofile to student
+• chown -R student foodir: grant ownership of directory to student
+• chown :admins foodir: change group ownership to admins
+• umask: display current value of shells umask
+• chmod option directory
+	o option: u+s (suid): file executes as the user that owns the file, not that ran the file
+	o g+s (sgid): file executes as the group that owns file 
+	o o+t (sticky): no effect
+	o numerical: 4= set uid, 2= set gid, 1: sticky
+
