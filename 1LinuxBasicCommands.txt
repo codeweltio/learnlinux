@@ -1,0 +1,114 @@
+ Basic Command
+ -------------
+
+- echo :- to print text
+- uptime :- Tell how long the system has been running
+- type :- to find out the type of a command
+- pwd :- print name of current/working directory
+- ls :- list directory contents
+    ls -la :- to long list/show hidden files
+       -lt :- long list files in order created
+	  -ltr :- reverse order created
+- mkdir - make directories
+- pushd :- This command remembers the current working directory before changing to the directory
+	   specified in the command argument
+- popd :- goes to the dir saved while using pushd
+- mv :- move (rename) files
+- cp :- copy files and directories
+- cat :- concatenate files and print on the terminal ( cat > ... :- add content to a file {to exit ctrl+d})
+- touch - create a new empty file /change file timestamps
+- more :- to read&filter entire file content   (space - to scroll ,Enter - scrolls one line, b - scrolls backwards,
+								/ - to search text)
+- less :- read the contents of a file one page at a time
+
+
+- whatis .*command. :- tells what a command does
+- apropos :- search the manual page names and descriptions for a keyword
+
+
+- chsh :- change login shell
+ 	     (For Bourne Shell - /bin/sh
+		    C shell - csh 
+		    korn shell - ksh
+		    z shell - zsh
+		    Bourne again shell - bash )	
+        
+- alias :- to set shortkey for commands
+- history :- to see previous commands used
+
+
+- env :- to view all environment variables 
+ - export *name=*value :- to set an new env
+                                             *add to ~/.profile or /pam_environment file to make it permanent 
+
+ - echo $__*name :- to check the value
+
+- which :- shows the full path of (shell) commands
+ 
+*customize bash prompt by changing value for PS1 
+             eg:- PS1="[\d \t \u@\h:\w ] $ "   - To change the bash prompt to display date, time, username of the current user,
+                                                     the hostname and the current working directory
+
+***************************************************************************************************
+
+
+- uname :- print kernel information
+      -a :- print all information
+- dmesg :- to display all messages from the kernel ring buffer
+- udevadm :- controls the runtime behavior of systemd-udevd, requests kernel events, manages the event queue, and provides simple
+             debugging mechanisms.
+- lspci :- list all PCI devices
+- lsblk :- list block devices
+- lscpu :- display information about the CPU architecture
+- lsmem :- list the ranges of available memory with their online status
+  - free :- Display amount of free and used memory in the system
+- lshw :- list hardware
+- ls -l /sbin/init :- To check the init system used
+
+- runlevel :- To see the operation mode set in the system
+           ( runlevel 5 means graphical interface{in systemd runlevel is called targets - graphical.target} ,
+									 3 - Command Line Interface (CLI) {multiuser.target})
+- systemctl get-default :- to see the default target
+  - ls -ltr /etc/systemd/system/default.target :- looks at the file located here
+
+- systemctl set-default multi-user.target:- To change the default target to *___
+												      runlevel 0 -> poweroff.target
+												      runlevel 1 -> rescue.target
+													runlevel 2 -> multi-user.target
+													runlevel 3 -> multi-user.target
+													runlevel 4 -> multi-user.target
+													runlevel 5 -> graphical.target
+													runlevel 6 -> reboot.target
+
+- file :— determine file type
+  - ls -ld :- ''
+
+- df :- To print all the mounted filesystems
+
+
+**************************************************************************
+
+/home : It is the location that contains the home directories for all users, except the root user (root user home directory is located at /root)
+
+/opt : If you want to install any third party programs put them in the /opt filesystem.
+
+/mnt : It is the default mount point for any partition and it is empty by default. It is used to mount filesystems temporarly in the system
+
+/tmp : It is used to store temporary data
+
+/media : All external media is mounted on /media
+
+/dev : Contains the special block and character device files
+
+/bin : The basic programs such as binaries cp, mv, mkdir are located in the /bin directory
+
+/etc : It stores most of the configuration files in Linux.
+
+/lib : The directory /lib and /lib64 is the place to look for shared libraries to be imported into your program
+
+/usr : In older systems, /usr directory is used for User Home Directories, however in the modern linux operating systems it is the location where all user land applciations in their data reside
+
+/var : It contains variable data like mails, log files
+
+
+******************************************************************************************
