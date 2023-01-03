@@ -1,0 +1,115 @@
+SSH and SCP
+-----------
+ 
+- SSH is used to login to the remote computer.
+- SCP is used to copy of files/directories within the file system also can copy data to remote computer.
+
+ - ssh <hostname OR IP Address> :- To login to the remote server
+ - ssh <user>@<hostname OR IP Address> :- To login to the remote server with specific username and password.
+   or - ssh -l <user> <hostname OR IP Address> :- 
+
+- scp <path of file to sent> <server>:<path to copy file> :- To copy a compresses file to a remote server
+ 
+ - scp –pr :- To copy a directory to a remote server
+    
+ 
+*********************************************************************************************************
+
+Password-Less Authentication
+----------------------------
+
+ - Public and Private key are stored at  :- Public Key: /home/bob/.ssh/id_rsa.pub
+							  Private Key: /home/bob/.ssh/id_rsa
+
+ - ssh-keygen –t rsa :- To generate a keypair on the Client
+
+ - ssh-copy-id :- To copy the Public key from the client to the remote server
+
+ - Public Key is copied to the remote server at : .ssh/authorized_keys
+
+********************************************************************************************************
+
+IPTABLES
+--------
+
+Iptables uses a set of tables that have chains that contain a set of built-in or user-defined rules.
+
+The two types of tables/rules:
+FILTER – this is the default table, which contains the built-in chains for: INPUT – packages destined for local sockets.
+         FORWARD – packets routed through the system. OUTPUT – packets generated locally.
+
+NAT – a table that is consulted when a packet tries to create a new connection. 
+      It has the following built-in: PREROUTING – used for altering a packet as soon as it’s received. OUTPUT – used for altering locally-generated packets.
+      POSTROUTING – used for altering packets as they are about to go out.
+
+- sudo apt install iptables :- For installing IPtables in Ubuntu servers
+
+- iptables -L :- To list the iptables rules
+
+- iptables -A INPUT -p TCP -s 172.16.238.187 --dport 22 -j ACCEPT
+  iptables -A INPUT -p TCP -s 172.16.238.187 --dport 80 -j ACCEPT :- To allow incoming connection from IP 172.16.238.187 to port 22 and 80
+
+ - -A or --append option appends the rule at the end of the selected chain
+ - -s or --source option Source specification
+ - -j, --jump option specifies the target of the rule
+ - -p, --protocol option defines protocol of the rule or the packet to check
+ - --dport or --destination-port refers to the destination port
+ - --sport or --source-port refers to source port.
+
+
+- iptables -A INPUT -j DROP :- To drop incoming connections from any source on any destination port for any protocol
+
+     Both DROP and REJECT prohibits packets from passing through the firewall.
+     - When we use the DROP command, it will not forward the packet or answer it. But, simply drops the packet silently.
+	 And, no indication is sent to the client or server.
+     - the REJECT command sends an error message back to the source indicating a connection failure
+
+
+- iptables -A OUTPUT -p tcp --dport 80 -j DROP :- To block outgoing traffic to any destination on port 80
+
+- iptables -I OUTPUT -p tcp -d abcd.com --dport 443 -j ACCEPT :- To allow https connection from the server to abcd.com
+
+
+*Unblock IP Address or to delete a rule in IPtables Firewall
+
+First find the line-number of the rule using :- iptables -L --line-numbers
+
+- iptables -D INPUT 5 :-  to delete the INPUT rule number 5
+
+
+- iptables -A INPUT  -p tcp -m multiport --dports 22,80,443 -j ACCEPT
+  iptables -A OUTPUT -p tcp -m multiport --sports 22,80,443 -j ACCEPT :- to allow Multiple Ports on IPtables
+
+- iptables -A INPUT -p icmp -i eth0 -j DROP :- To Block Incoming Ping Requests on an interface say eth0
+
+- iptables -A INPUT -m mac --mac-source <mac addr> -j DROP :- To Block Access to Specific MAC Address
+
+***************************************************************************************************************************
+
+Cronjob  - basic usage of cron is to execute a job in a specific time
+-------
+
+- crontab -e :- Edit or create a crontab file if doesn't already exist
+- crontab -l :- Display the crontab file 
+- crontab -r :- Remove the crontab file
+- crontab -e :- Display the last time you edited your crontab file
+
+ Crontab Examples
+   -----------
+*/30 * * * *  :- Every 30 mins
+
+0 * * * * 	  :- Every hour
+
+0 0 * * 0     :- At midnight of every Sunday
+
+0 0 0 15 * *  :- Every 15th of month (monthly)
+
+0 0 0 1 1 *   :- Every 1st of january (yearly)
+
+@reboot Every reboot
+
+
+     * https://github.com/kodekloudhub/linux-basics-course/blob/master/images/cronformat.png
+     * https://github.com/kodekloudhub/linux-basics-course/blob/master/images/cronspclstring.png
+     * https://github.com/kodekloudhub/linux-basics-course/blob/master/images/cronspchar.png
+     * https://github.com/kodekloudhub/linux-basics-course/blob/master/images/croncmd.png
