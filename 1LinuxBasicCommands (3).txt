@@ -86,7 +86,10 @@ LINUX FILE PERMISSIONS
 
 - chmod :- to modify the file permissions.
 - chmod u+rwx :- Provide full access to owners
-       0r 700 
+       0r 700   
+              X = 1
+              W = 2
+              R = 4
 - chmod ugo+r-x :- Provide Read access to Owners, groups and others, Remove execute access
 
 - chown *owner:*group :- Changes owner and group
